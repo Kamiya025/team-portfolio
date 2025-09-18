@@ -1,3 +1,5 @@
+import { LocaleString } from "./type"
+
 export interface TeamMember {
   name: string
   role: string
@@ -7,18 +9,18 @@ export interface TeamMember {
 }
 
 export interface Team {
-  name: string
-  slogan: string
+  name: LocaleString
+  slogan: LocaleString
 }
 
 export interface TeamStat {
-  value: string
-  label: string
+  value: LocaleString
+  label: LocaleString
   gradient: string
 }
 
 export interface HeroStat {
-  value: string
-  label: string
+  value: LocaleString
+  label: LocaleString
   path?: string
 }

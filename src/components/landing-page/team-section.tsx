@@ -4,10 +4,12 @@ import type { TeamMember } from "@/models"
 import { teamMembers, teamStats } from "@/data"
 import Image from "next/image"
 import { Badge } from "../ui"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
+import { getLocalizedString } from "@/utils"
 
 export function TeamSection() {
   const t = useTranslations("team")
+  const locale = useLocale()
   return (
     <section
       id="team"
@@ -40,6 +42,7 @@ export function TeamSection() {
               key={index}
               member={member}
               animationDelay={index * 0.2}
+              t={t}
             />
           ))}
         </div>
@@ -48,11 +51,10 @@ export function TeamSection() {
         <div className="mt-24 bg-white/50 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-slate-200/50 dark:border-slate-800/50 shadow-2xl">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-blue-900 dark:from-white dark:to-blue-100 bg-clip-text text-transparent mb-6">
-              Tại sao chọn chúng tôi?
+              {t("whyChooseUs.title")}
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Với sự đa dạng về kỹ năng và kinh nghiệm, chúng tôi có thể đáp ứng
-              mọi yêu cầu phát triển phần mềm của bạn.
+              {t("whyChooseUs.description")}
             </p>
           </div>
 
@@ -70,7 +72,7 @@ export function TeamSection() {
                   <div
                     className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}
                   >
-                    {stat.value}
+                    {getLocalizedString(stat.value, locale)}
                   </div>
                   <div className="text-slate-600 dark:text-slate-300 font-medium">
                     {t(`stats.${statKey}`)}
@@ -87,9 +89,11 @@ export function TeamSection() {
 const TeamMember = ({
   member,
   animationDelay = 1,
+  t,
 }: {
   member: TeamMember
   animationDelay?: number
+  t: (key: string) => string
 }) => {
   return (
     <div
@@ -149,7 +153,7 @@ const TeamMember = ({
           <div>
             <h4 className="text-sm font-semibold text-blue-400 mb-3 flex items-center gap-2 group-odd:justify-start group-even:justify-end">
               <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
-              Kỹ năng chuyên môn
+              {t("skills")}
             </h4>
             <div className="flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-2">
               {member.skills.map((skill, index) => (

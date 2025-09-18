@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Heading } from "@/components/ui/heading"
 import { Section, Container } from "@/components/ui/section"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 
 export default function NotFound() {
   return (

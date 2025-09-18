@@ -1,12 +1,15 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { socialLinks, footerContent } from "@/data"
 import { SocialIcon } from "../social-icon"
+import { getLocalizedString } from "@/utils"
+import { Link } from "@/i18n/navigation"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
   const t = useTranslations("footer")
+  const locale = useLocale()
 
   // Footer links data
   const companyLinks = [
@@ -45,22 +48,22 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <div className="text-2xl font-bold text-primary">
-                {footerContent.companyName}
+                {getLocalizedString(footerContent.companyName, locale)}
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {footerContent.description}
+              {getLocalizedString(footerContent.description, locale)}
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
+              {socialLinks.map((social, index) => (
+                <Link
+                  key={index}
                   href={social.href}
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                  aria-label={social.name}
+                  aria-label={getLocalizedString(social.name, locale)}
                 >
                   <SocialIcon icon={social.icon} />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -127,18 +130,19 @@ export function Footer() {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-              © {currentYear} {footerContent.companyName}.{" "}
-              {footerContent.copyright}
+              © {currentYear}{" "}
+              {getLocalizedString(footerContent.companyName, locale)}.{" "}
+              {getLocalizedString(footerContent.copyright, locale)}
             </div>
             <div className="flex space-x-6 text-sm">
               {legalLinks.map((link, index) => (
-                <a
+                <Link
                   key={index}
                   href={link.href}
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

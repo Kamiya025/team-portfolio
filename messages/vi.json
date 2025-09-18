@@ -104,17 +104,24 @@
       "web": "Web Application",
       "mobile": "Mobile App",
       "ai": "AI/ML Solution",
-      "desktop": "Desktop App"
+      "desktop": "Desktop App",
+      "all": "Tất cả"
     },
     "cta": {
       "viewAll": "Xem tất cả dự án",
       "viewDetails": "Xem chi tiết"
-    }
+    },
+    "teamSize": "người"
   },
   "team": {
     "title": "Đội ngũ của chúng tôi",
     "subtitle": "Những con người tài năng và đam mê công nghệ, cùng nhau tạo nên những sản phẩm phần mềm chất lượng cao.",
     "badge": "Đội ngũ chuyên nghiệp",
+    "whyChooseUs": {
+      "title": "Tại sao chọn chúng tôi?",
+      "description": "Với sự đa dạng về kỹ năng và kinh nghiệm, chúng tôi có thể đáp ứng mọi yêu cầu phát triển phần mềm của bạn."
+    },
+    "skills": "Kỹ năng chuyên môn",
     "role": {
       "frontend": "Frontend Developer",
       "backend": "Backend Developer",

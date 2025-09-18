@@ -1,20 +1,22 @@
+import { LocaleString } from "./type"
+
 export interface Skill {
   icon: string
-  title: string
-  description: string
+  title: LocaleString
+  description: LocaleString
 }
 
 export interface CTAButton {
-  text: string
+  text: LocaleString
   variant: string
 }
 
 export interface FeaturesContent {
-  title: string
-  description: string
+  title: LocaleString
+  description: LocaleString
   cta: {
-    title: string
-    description: string
+    title: LocaleString
+    description: LocaleString
     buttons: CTAButton[]
   }
 }

@@ -1,12 +1,39 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
-import { useTranslations } from "next-intl"
-import { useMobileMenu } from "@/providers/mobile-menu-provider"
-import { ThemeToggle } from "./theme-toggle"
-import { LanguageSwitcher } from "../language-switcher"
-import { Icon } from "../icon"
 import { Link } from "@/i18n/navigation"
+import { useMobileMenu } from "@/providers/mobile-menu-provider"
+import { useTranslations } from "next-intl"
+import { useEffect, useState } from "react"
+import { Icon } from "../icon"
+import { LanguageSwitcher } from "../language-switcher"
+import { ThemeToggle } from "./theme-toggle"
+const navigation = [
+  {
+    name: "home",
+    href: "#home",
+    icon: "home",
+  },
+  {
+    name: "team",
+    href: "#team",
+    icon: "team",
+  },
+  {
+    name: "about",
+    href: "#about",
+    icon: "about",
+  },
+  {
+    name: "features",
+    href: "#services",
+    icon: "skills",
+  },
+  {
+    name: "projects",
+    href: "#projects",
+    icon: "data",
+  },
+]
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -14,37 +41,6 @@ export function Header() {
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } =
     useMobileMenu()
   const t = useTranslations("navigation")
-
-  const navigation = useMemo(
-    () => [
-      {
-        name: t("home"),
-        href: "#home",
-        icon: "home",
-      },
-      {
-        name: t("team"),
-        href: "#team",
-        icon: "team",
-      },
-      {
-        name: t("about"),
-        href: "#about",
-        icon: "about",
-      },
-      {
-        name: t("features"),
-        href: "#services",
-        icon: "skills",
-      },
-      {
-        name: t("projects"),
-        href: "#projects",
-        icon: "data",
-      },
-    ],
-    [t]
-  )
 
   // Handle scroll effect
   useEffect(() => {
@@ -134,7 +130,7 @@ export function Header() {
                           scrolled ? "" : "text-white"
                         }`}
                       >
-                        {item.name}
+                        {t(item.name)}
                       </span>
                       {isActive && <div className="active-indicator"></div>}
                     </a>

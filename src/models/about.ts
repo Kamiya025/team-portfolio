@@ -1,7 +1,9 @@
+import { LocaleString } from "./type"
+
 export interface Value {
   icon: string
-  title: string
-  description: string
+  title: LocaleString
+  description: LocaleString
 }
 
 export interface Technology {
@@ -10,15 +12,15 @@ export interface Technology {
 }
 
 export interface AboutContent {
-  title: string
-  description: string
+  title: LocaleString
+  description: LocaleString
   story: {
-    title: string
-    paragraphs: string[]
+    title: LocaleString
+    paragraphs: LocaleString[]
   }
   mission: {
-    title: string
-    description: string
-    points: string[]
+    title: LocaleString
+    description: LocaleString
+    points: LocaleString[]
   }
 }

@@ -1,8 +1,10 @@
+import { LocaleString } from "./type"
+
 export interface Project {
   id: string
-  title: string
-  description: string
-  shortDescription: string
+  title: LocaleString
+  description: LocaleString
+  shortDescription: LocaleString
   image: string
   technologies: string[]
   category: "web" | "mobile" | "desktop" | "ai" | "other"
@@ -13,19 +15,19 @@ export interface Project {
   year: number
   client?: string
   teamSize: number
-  duration: string
+  duration: LocaleString
 }
 
 export interface ProjectsContent {
-  title: string
-  subtitle: string
-  description: string
+  title: LocaleString
+  subtitle: LocaleString
+  description: LocaleString
   ctaButton: {
-    text: string
+    text: LocaleString
     href: string
   }
   viewAllButton: {
-    text: string
+    text: LocaleString
     href: string
   }
 }

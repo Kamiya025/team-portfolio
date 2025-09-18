@@ -6,7 +6,8 @@ import { Card } from "@/components/ui/card"
 import { featuredProjects } from "@/data"
 import { Project } from "@/models"
 import { useState } from "react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
+import { getLocalizedString } from "@/utils"
 
 // Project Status Badge Component
 const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {
@@ -122,15 +123,9 @@ const TechnologyTags = ({ technologies }: { technologies: string[] }) => {
 }
 
 // Project Stats Component
-const ProjectStats = ({
-  duration,
-  teamSize,
-  client,
-}: {
-  duration: string
-  teamSize: number
-  client?: string
-}) => {
+const ProjectStats = ({ duration, teamSize, client }: Project) => {
+  const t = useTranslations("projects")
+  const locale = useLocale()
   return (
     <div className="px-6 pb-6">
       <div className="flex items-center justify-between text-xs text-white/50 border-t border-white/10 pt-4">
@@ -143,13 +138,13 @@ const ProjectStats = ({
                 clipRule="evenodd"
               />
             </svg>
-            {duration}
+            {getLocalizedString(duration, locale)}
           </span>
           <span className="flex items-center gap-1">
             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
               <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
             </svg>
-            {teamSize} người
+            {t("teamSize", { count: teamSize })}
           </span>
         </div>
         {client && <span className="text-blue-400 font-medium">{client}</span>}
@@ -202,6 +197,7 @@ const ProjectImageHeader = ({
 
 // Project Header Component
 const ProjectHeader = ({ project }: { project: Project }) => {
+  const locale = useLocale()
   return (
     <div className="relative p-6 pb-4">
       <div className="flex items-start justify-between mb-4">
@@ -209,7 +205,7 @@ const ProjectHeader = ({ project }: { project: Project }) => {
           <CategoryIcon category={project.category} />
           <div>
             <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-              {project.title}
+              {getLocalizedString(project.title, locale)}
             </h3>
             <div className="flex items-center gap-2 mt-1">
               <ProjectStatusBadge status={project.status} />
@@ -220,7 +216,7 @@ const ProjectHeader = ({ project }: { project: Project }) => {
       </div>
 
       <p className="text-white/70 text-sm leading-relaxed mb-4 h-16 overflow-hidden line-clamp-3">
-        {project.description}
+        {getLocalizedString(project.description, locale)}
       </p>
     </div>
   )
@@ -250,11 +246,7 @@ const ProjectCard = ({
           <ProjectHeader project={project} />
           <TechnologyTags technologies={project.technologies} />
           <div className="flex-1"></div>
-          <ProjectStats
-            duration={project.duration}
-            teamSize={project.teamSize}
-            client={project.client}
-          />
+          <ProjectStats {...project} />
         </div>
 
         {/* Hover Glow Effect */}
@@ -323,7 +315,7 @@ export function ProjectsSection() {
   const t = useTranslations("projects")
 
   const categories = [
-    { id: "all", label: "Tất cả", count: featuredProjects.length },
+    { id: "all", label: t("categories.all"), count: featuredProjects.length },
     {
       id: "web",
       label: t("categories.web"),

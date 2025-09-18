@@ -1,16 +1,18 @@
+import { LocaleString } from "./type"
+
 export interface FooterLink {
-  name: string
+  name: LocaleString
   href: string
 }
 
 export interface SocialLink {
-  name: string
+  name: LocaleString
   href: string
   icon: string
 }
 
 export interface FooterContent {
-  companyName: string
-  description: string
-  copyright: string
+  companyName: LocaleString
+  description: LocaleString
+  copyright: LocaleString
 }

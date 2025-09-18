@@ -104,17 +104,24 @@
       "web": "Web Application",
       "mobile": "Mobile App",
       "ai": "AI/ML Solution",
-      "desktop": "Desktop App"
+      "desktop": "Desktop App",
+      "all": "All"
     },
     "cta": {
       "viewAll": "View All Projects",
       "viewDetails": "View Details"
-    }
+    },
+    "teamSize": "people"
   },
   "team": {
     "title": "Our Team",
     "subtitle": "Talented and technology-passionate people, working together to create high-quality software products.",
     "badge": "Professional Team",
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "description": "With diverse skills and experience, we can meet all your software development requirements."
+    },
+    "skills": "Professional Skills",
     "role": {
       "frontend": "Frontend Developer",
       "backend": "Backend Developer",

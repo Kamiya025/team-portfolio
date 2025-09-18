@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { listTeams, TEAM_PHOTO, heroStats } from "@/data/hero"
 import { Link } from "@/i18n/navigation"
+import { getLocalizedString } from "@/utils"
 
 export function HeroSection() {
   // Team photo for preview
@@ -43,6 +44,7 @@ export function HeroSection() {
 }
 
 const StatsGlass = () => {
+  const locale = useLocale()
   return (
     <div
       className="mx-auto max-w-full w-3xl grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 rounded-2xl liquid-glass p-4 sm:p-4 animate-fade-in-up"
@@ -55,10 +57,10 @@ const StatsGlass = () => {
           className="rounded-xl p-3 sm:p-3 text-center"
         >
           <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-            {stat.value}
+            {getLocalizedString(stat.value, locale)}
           </div>
           <div className="text-xs sm:text-xs md:text-sm text-white/70 mt-1">
-            {stat.label}
+            {getLocalizedString(stat.label, locale)}
           </div>
         </Link>
       ))}
@@ -69,7 +71,7 @@ const Context = () => {
   const [currentText, setCurrentText] = useState(0)
   const texts = listTeams
   const t = useTranslations("hero")
-
+  const locale = useLocale()
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % texts.length)
@@ -98,7 +100,7 @@ const Context = () => {
               <span>{t("title")}</span>
               <div className="lg:min-w-sm  flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md group-hover:rotate-3 group-hover:scale-3d">
                 <span className="gradient-text uppercase font-extrabold">
-                  {texts[currentText].name}
+                  {getLocalizedString(texts[currentText].name, locale)}
                 </span>
               </div>
             </div>
@@ -109,7 +111,7 @@ const Context = () => {
           className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto animate-fade-in-up inline-block px-4 py-2 rounded-xl ring-white/10 drop-shadow"
           style={{ animationDelay: "0.1s" }}
         >
-          {texts[currentText].slogan}
+          {getLocalizedString(texts[currentText].slogan, locale)}
         </p>
 
         {/* CTAs */}
