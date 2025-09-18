@@ -1,11 +1,12 @@
 import { LocaleString } from "./type"
 
 export interface TeamMember {
-  name: string
-  role: string
+  name: LocaleString
+  role: LocaleString
   avatar: string
   skills: string[]
-  description: string
+  description: LocaleString
+  funFact?: LocaleString
 }
 
 export interface Team {

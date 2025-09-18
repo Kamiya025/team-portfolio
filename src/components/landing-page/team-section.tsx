@@ -95,24 +95,40 @@ const TeamMember = ({
   animationDelay?: number
   t: (key: string) => string
 }) => {
+  const locale = useLocale()
   return (
     <div
       className={`relative flex-1 flex flex-col group md:flex-row items-center gap-8 
                 even:md:flex-row-reverse even:text-right
                 rounded-3xl p-6 md:p-8 border border-slate-200/10 dark:border-blue-600/30
-                bg-black/30 dark:bg-slate-900/30 backdrop-blur-xl shadow-2xl
-                hover:shadow-blue-500/30 hover:ring-2 hover:ring-blue-400/30 transition
-                sw-hologram`}
+                bg-gradient-to-br from-slate-900/40 via-blue-900/20 to-cyan-900/30 
+                dark:from-slate-800/50 dark:via-blue-800/30 dark:to-cyan-800/40 
+                backdrop-blur-xl shadow-2xl
+                hover:shadow-blue-500/50 hover:ring-2 hover:ring-blue-400/50 
+                hover:scale-[1.02] hover:bg-gradient-to-br hover:from-slate-800/60 hover:via-blue-800/40 hover:to-cyan-800/50
+                transition-all duration-700 ease-out
+                sw-hologram group-hover:sw-holo-flicker`}
       style={{ animationDelay: `${animationDelay}s` }}
     >
-      <div className="flex-shrink-0">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-1000"></div>
+      </div>
+
+      <div className="flex-shrink-0 relative z-10">
         <div className="group relative">
+          {/* Outer glow ring */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
           <div
             className="relative w-44 h-64 p-2 transform 
                       group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
                       group-odd:rounded-tr-[6rem] group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg
-                      bg-gradient-to-br from-blue-600/60 via-cyan-500/60 to-blue-700/60 
-                      group-hover:scale-110 transition-all duration-500 shadow-2xl sw-neon-border"
+                      bg-gradient-to-br from-blue-600/80 via-cyan-500/80 to-purple-600/80 
+                      group-hover:from-blue-500/90 group-hover:via-cyan-400/90 group-hover:to-purple-500/90
+                      group-hover:scale-110 group-hover:rotate-2 transition-all duration-700 shadow-2xl 
+                      sw-neon-border group-hover:shadow-blue-400/50"
           >
             <div
               className="absolute bottom-0 left-0 z-10 w-full h-full transform origin-center p-2 overflow-hidden
@@ -121,47 +137,104 @@ const TeamMember = ({
             >
               <Image
                 src={member.avatar}
-                alt={member.name}
+                alt={getLocalizedString(member.name, locale)}
                 width={192}
                 height={194}
-                className="w-full h-full object-cover transition-transform duration-500"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
               />
+            </div>
+
+            {/* Floating particles effect */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute bottom-4 left-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200"></div>
+              <div className="absolute top-1/2 right-1 w-1 h-1 bg-purple-400 rounded-full animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-500"></div>
             </div>
           </div>
         </div>
       </div>
+
       {/* Content Section */}
-      <div className="flex-1 !h-full flex-shrink-0">
-        <div className="flex-1 h-full flex flex-col gap-5 group-odd:items-start group-even:items-end">
+      <div className="flex-1 !h-full flex-shrink-0 relative z-10">
+        <div className="flex-1 h-full flex flex-col gap-6 group-odd:items-start group-even:items-end">
           <div className="flex-1 flex flex-col group-odd:items-start group-even:items-end">
             <div
-              className="min-w-60 w-fit flex flex-col gap-2 px-5 py-3 rounded-2xl 
-                        border-1 border-blue-400/40 liquid-glass shadow-2xl mb-4 rotate-[-1deg]
-                        group-even:md:rotate-[1deg] group-even:md:self-end
-                        md:self-start self-center sw-neon-border sw-holo-flicker"
+              className="min-w-60 w-fit flex flex-col gap-3 px-6 py-4 rounded-2xl 
+                        bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20
+                        group-hover:from-blue-500/30 group-hover:via-cyan-500/30 group-hover:to-purple-500/30
+                        border border-blue-400/60 group-hover:border-blue-300/80
+                        shadow-2xl mb-6 rotate-[-1deg] group-hover:rotate-0
+                        group-even:md:rotate-[1deg] group-even:md:group-hover:rotate-0 group-even:md:self-end
+                        md:self-start self-center sw-neon-border group-hover:sw-holo-flicker
+                        transition-all duration-700 group-hover:scale-105 group-hover:shadow-blue-400/30"
             >
-              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-                {member.name}
+              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:via-cyan-200 group-hover:to-purple-200 transition-all duration-700">
+                {getLocalizedString(member.name, locale)}
               </h3>
-              <p className="text-xs">{member.role}</p>
+              <p className="text-sm font-medium text-blue-300 group-hover:text-cyan-300 transition-colors duration-700">
+                {getLocalizedString(member.role, locale)}
+              </p>
             </div>
-            <div>
-              <div className="max-w-2xl line-clamp-3">{member.description}</div>
+
+            <div className="relative">
+              <div className="max-w-2xl text-slate-300 group-hover:text-slate-200 transition-colors duration-700 leading-relaxed">
+                {getLocalizedString(member.description, locale)}
+              </div>
+
+              {/* Decorative line */}
+              <div className="absolute -bottom-2 left-0 w-16 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-300 group-even:md:left-auto group-even:md:right-0"></div>
             </div>
           </div>
+
+          {/* Floating Fun Fact - Only show if funFact exists */}
+          {member.funFact && (
+            <div className="absolute -top-8 group-odd:right-4 group-even:left-4 text-left z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-500 group-hover:translate-y-0 translate-y-2">
+              <div
+                className="bg-gradient-to-r from-purple-500/90 via-pink-500/90 to-orange-500/90 
+                            backdrop-blur-xl border border-purple-300/50
+                            rounded-2xl p-4 shadow-2xl shadow-purple-500/30
+                            max-w-xs transform group-hover:scale-105 group-hover:rotate-1
+                            transition-all duration-700 ease-out
+                            animate-floatEnhanced"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
+                    <span className="text-white text-lg">💡</span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-semibold text-white mb-2 drop-shadow-lg">
+                      Fun Fact
+                    </h4>
+                    <p className="text-xs text-white/90 leading-relaxed drop-shadow-md">
+                      {getLocalizedString(member.funFact, locale)}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Floating particles around the fun fact */}
+                <div className="absolute -top-2 -right-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
+                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce opacity-70"></div>
+                <div className="absolute top-1/2 -right-3 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-80"></div>
+              </div>
+            </div>
+          )}
+
           {/* Skills Section */}
-          <div>
-            <h4 className="text-sm font-semibold text-blue-400 mb-3 flex items-center gap-2 group-odd:justify-start group-even:justify-end">
-              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+          <div className="relative">
+            <h4 className="text-sm font-semibold text-blue-400 mb-4 flex items-center gap-2 group-odd:justify-start group-even:justify-end group-hover:text-cyan-400 transition-colors duration-700">
+              <span className="w-2 h-2 bg-blue-400 rounded-full group-hover:bg-cyan-400 group-hover:scale-125 transition-all duration-700"></span>
               {t("skills")}
             </h4>
-            <div className="flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-2">
+            <div className="flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-3">
               {member.skills.map((skill, index) => (
                 <Badge
                   key={skill + index}
                   variant="primary"
                   size="sm"
-                  className="sw-neon-border hover:scale-105 transition-transform duration-300"
+                  className="sw-neon-border hover:scale-110 hover:shadow-lg hover:shadow-blue-400/30 
+                           transition-all duration-500 hover:bg-gradient-to-r hover:from-blue-500/30 hover:to-cyan-500/30
+                           group-hover:animate-pulse"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {skill}
                 </Badge>

@@ -789,6 +789,10 @@ body {
   animation: floatEnhanced 8s ease-in-out infinite;
 }
 
+.animate-floatEnhanced {
+  animation: floatEnhanced 8s ease-in-out infinite;
+}
+
 /* Team avatar hover effects */
 .team-avatar {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
