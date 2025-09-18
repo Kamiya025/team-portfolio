@@ -1,7 +1,8 @@
 "use client"
 
-import Image from "next/image"
+import type { TeamMember } from "@/models"
 import { teamMembers, teamStats } from "@/data"
+import Image from "next/image"
 import { Badge } from "../ui"
 
 export function TeamSection() {
@@ -34,77 +35,11 @@ export function TeamSection() {
         {/* Team Zigzag Layout */}
         <div className="space-y-16">
           {teamMembers.map((member, index) => (
-            <div
+            <TeamMember
               key={index}
-              className={`relative flex-1 flex flex-col group md:flex-row items-center gap-8 
-                even:md:flex-row-reverse even:text-right
-                rounded-3xl p-6 md:p-8 border border-slate-200/10 dark:border-blue-600/30
-                bg-black/30 dark:bg-slate-900/30 backdrop-blur-xl shadow-2xl
-                hover:shadow-blue-500/30 hover:ring-2 hover:ring-blue-400/30 transition
-                sw-hologram`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="flex-shrink-0">
-                <div className="group relative">
-                  <div
-                    className="relative w-44 h-64 p-2 transform 
-                      group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
-                      group-odd:rounded-tr-[6rem] group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg
-                      bg-gradient-to-br from-blue-600/60 via-cyan-500/60 to-blue-700/60 
-                      group-hover:scale-110 transition-all duration-500 shadow-2xl sw-neon-border"
-                  >
-                    <div
-                      className="absolute bottom-0 left-0 z-10 w-full h-full transform origin-center p-2 overflow-hidden
-                        group-even:rounded-tl-[7rem] group-even:rounded-br-[7rem] group-even:rounded-tr-xl group-even:rounded-bl-xl
-                        group-odd:rounded-tr-[7rem] group-odd:rounded-bl-[7rem] group-odd:rounded-tl-xl group-odd:rounded-br-xl"
-                    >
-                      <Image
-                        src={member.avatar}
-                        alt={member.name}
-                        width={192}
-                        height={194}
-                        className="w-full h-full object-cover transition-transform duration-500"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content Section */}
-              <div className="flex-1 flex flex-col gap-5 group-odd:items-start group-even:items-end">
-                <div className="flex-1 flex flex-col group-odd:items-start group-even:items-end">
-                  <div
-                    className="min-w-60 w-fit flex flex-col gap-2 px-5 py-3 rounded-2xl 
-                        border-1 border-blue-400/40 liquid-glass shadow-2xl mb-4 rotate-[-1deg]
-                        group-even:md:rotate-[1deg] group-even:md:self-end
-                        md:self-start self-center sw-neon-border sw-holo-flicker"
-                  >
-                    <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs">{member.role}</p>
-                  </div>
-                  <div>
-                    <div className="max-w-2xl line-clamp-3">
-                      {member.description}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-3">
-                  {member.skills.map((skill, index) => (
-                    <Badge
-                      key={skill + index}
-                      variant="primary"
-                      size="sm"
-                      className="sw-neon-border"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
+              member={member}
+              animationDelay={index * 0.2}
+            />
           ))}
         </div>
 
@@ -137,5 +72,90 @@ export function TeamSection() {
         </div>
       </div>
     </section>
+  )
+}
+const TeamMember = ({
+  member,
+  animationDelay = 1,
+}: {
+  member: TeamMember
+  animationDelay?: number
+}) => {
+  return (
+    <div
+      className={`relative flex-1 flex flex-col group md:flex-row items-center gap-8 
+                even:md:flex-row-reverse even:text-right
+                rounded-3xl p-6 md:p-8 border border-slate-200/10 dark:border-blue-600/30
+                bg-black/30 dark:bg-slate-900/30 backdrop-blur-xl shadow-2xl
+                hover:shadow-blue-500/30 hover:ring-2 hover:ring-blue-400/30 transition
+                sw-hologram`}
+      style={{ animationDelay: `${animationDelay}s` }}
+    >
+      <div className="flex-shrink-0">
+        <div className="group relative">
+          <div
+            className="relative w-44 h-64 p-2 transform 
+                      group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
+                      group-odd:rounded-tr-[6rem] group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg
+                      bg-gradient-to-br from-blue-600/60 via-cyan-500/60 to-blue-700/60 
+                      group-hover:scale-110 transition-all duration-500 shadow-2xl sw-neon-border"
+          >
+            <div
+              className="absolute bottom-0 left-0 z-10 w-full h-full transform origin-center p-2 overflow-hidden
+                        group-even:rounded-tl-[7rem] group-even:rounded-br-[7rem] group-even:rounded-tr-xl group-even:rounded-bl-xl
+                        group-odd:rounded-tr-[7rem] group-odd:rounded-bl-[7rem] group-odd:rounded-tl-xl group-odd:rounded-br-xl"
+            >
+              <Image
+                src={member.avatar}
+                alt={member.name}
+                width={192}
+                height={194}
+                className="w-full h-full object-cover transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Content Section */}
+      <div className="flex-1 !h-full flex-shrink-0">
+        <div className="flex-1 h-full flex flex-col gap-5 group-odd:items-start group-even:items-end">
+          <div className="flex-1 flex flex-col group-odd:items-start group-even:items-end">
+            <div
+              className="min-w-60 w-fit flex flex-col gap-2 px-5 py-3 rounded-2xl 
+                        border-1 border-blue-400/40 liquid-glass shadow-2xl mb-4 rotate-[-1deg]
+                        group-even:md:rotate-[1deg] group-even:md:self-end
+                        md:self-start self-center sw-neon-border sw-holo-flicker"
+            >
+              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+                {member.name}
+              </h3>
+              <p className="text-xs">{member.role}</p>
+            </div>
+            <div>
+              <div className="max-w-2xl line-clamp-3">{member.description}</div>
+            </div>
+          </div>
+          {/* Skills Section */}
+          <div>
+            <h4 className="text-sm font-semibold text-blue-400 mb-3 flex items-center gap-2 group-odd:justify-start group-even:justify-end">
+              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              Kỹ năng chuyên môn
+            </h4>
+            <div className="flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-2">
+              {member.skills.map((skill, index) => (
+                <Badge
+                  key={skill + index}
+                  variant="primary"
+                  size="sm"
+                  className="sw-neon-border hover:scale-105 transition-transform duration-300"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }

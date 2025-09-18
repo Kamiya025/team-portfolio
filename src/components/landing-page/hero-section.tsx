@@ -85,20 +85,21 @@ const Context = () => {
         </div>
 
         {/* Heading (compact) */}
-        <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight headline-mono animate-fade-in-up"
-          style={{ animationDelay: "0.05s" }}
-        >
-          <div className="flex flex-wrap lg:flex-row items-center-safe gap-5">
-            <span>Đội ngũ</span>
-            <div className="flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md group-hover:bg-amber-200">
-              <span className="gradient-text uppercase font-extrabold">
-                {texts[currentText].name}
-              </span>
+        <div className="flex flex-col items-center justify-center">
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight headline-mono animate-fade-in-up"
+            style={{ animationDelay: "0.05s" }}
+          >
+            <div className="flex flex-wrap lg:flex-row items-center-safe gap-5 h-[20dvh]">
+              <span>Đội ngũ</span>
+              <div className="min-w-sm flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md group-hover:rotate-3 group-hover:scale-3d">
+                <span className="gradient-text uppercase font-extrabold">
+                  {texts[currentText].name}
+                </span>
+              </div>
             </div>
-          </div>
-        </h1>
-
+          </h1>
+        </div>
         {/* slogan */}
         <p
           className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto animate-fade-in-up inline-block px-4 py-2 rounded-xl ring-white/10 drop-shadow"

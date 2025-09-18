@@ -3,6 +3,7 @@ import { FeaturesSection } from "@/components/landing-page/features-section"
 import { Footer } from "@/components/landing-page/footer"
 import { Header } from "@/components/landing-page/header"
 import { HeroSection } from "@/components/landing-page/hero-section"
+import { ProjectsSection } from "@/components/landing-page/projects-section"
 import { TeamSection } from "@/components/landing-page/team-section"
 import { BackToTop } from "@/components/ui/back-to-top"
 
@@ -16,6 +17,7 @@ export default function Home() {
           <TeamSection />
           <AboutSection />
           <FeaturesSection />
+          <ProjectsSection />
         </div>
       </main>
       <BackToTop />

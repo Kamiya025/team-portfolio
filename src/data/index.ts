@@ -10,6 +10,9 @@ export { skills, featuresContent } from "./features"
 // Footer data
 export { footerLinks, socialLinks, footerContent } from "./footer"
 
+// Projects data
+export { featuredProjects, projectsContent } from "./projects"
+
 // Re-export types from models
 export type {
   TeamMember,
@@ -23,4 +26,6 @@ export type {
   FooterLink,
   SocialLink,
   FooterContent,
+  Project,
+  ProjectsContent,
 } from "@/models"

@@ -9,3 +9,6 @@ export type { Skill, CTAButton, FeaturesContent } from "./features"
 
 // Footer models
 export type { FooterLink, SocialLink, FooterContent } from "./footer"
+
+// Projects models
+export type { Project, ProjectsContent } from "./projects"
