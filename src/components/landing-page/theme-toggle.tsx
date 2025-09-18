@@ -4,7 +4,7 @@ import { useTheme } from "@/providers/theme-provider"
 import { useEffect, useState } from "react"
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
