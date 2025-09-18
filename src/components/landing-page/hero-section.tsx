@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { listTeams, TEAM_PHOTO, heroStats } from "@/data/hero"
 
 export function HeroSection() {
   // Team photo for preview
-  const teamPhoto = "/hero-background.jpg"
 
   return (
     <section
@@ -15,7 +15,7 @@ export function HeroSection() {
       {/* Background + FX */}
       <div className="absolute inset-0">
         <Image
-          src={teamPhoto}
+          src={TEAM_PHOTO}
           alt="Team background"
           fill
           className="object-cover blur-md brightness-75 contrast-110 scale-[1.02]"
@@ -49,33 +49,23 @@ export function HeroSection() {
 const StatsGlass = () => {
   return (
     <div
-      className="mx-auto max-w-3xl grid grid-cols-3 gap-2 sm:gap-4 rounded-2xl liquid-glass p-3 sm:p-4 animate-fade-in-up"
+      className="mx-auto max-w-full w-3xl grid grid-cols-3 gap-2 sm:gap-4 rounded-2xl liquid-glass p-3 sm:p-4 animate-fade-in-up"
       style={{ animationDelay: "0.2s" }}
     >
-      <div className="rounded-xl  p-3">
-        <div className="text-3xl md:text-4xl font-bold text-white">+30</div>
-        <div className="text-xs md:text-sm text-white/70">Dự án hoàn thành</div>
-      </div>
-      <div className="rounded-xl  p-3">
-        <div className="text-3xl md:text-4xl font-bold text-white">10+</div>
-        <div className="text-xs md:text-sm text-white/70">
-          Thành viên cốt lõi
+      {heroStats.map((stat, index) => (
+        <div key={index} className="rounded-xl p-3">
+          <div className="text-3xl md:text-4xl font-bold text-white">
+            {stat.value}
+          </div>
+          <div className="text-xs md:text-sm text-white/70">{stat.label}</div>
         </div>
-      </div>
-      <div className="rounded-xl  p-3">
-        <div className="text-3xl md:text-4xl font-bold text-white">24/7</div>
-        <div className="text-xs md:text-sm text-white/70">
-          Hỗ trợ & vận hành
-        </div>
-      </div>
+      ))}
     </div>
   )
 }
 const Context = () => {
   const [currentText, setCurrentText] = useState(0)
-
-  const texts = ["Frontend", "Backend", "Mobile App", "Full-stack", "DevOps"]
-
+  const texts = listTeams
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % texts.length)
@@ -85,7 +75,7 @@ const Context = () => {
 
   return (
     <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
-      <div className="space-y-10">
+      <div className="space-y-10 group">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker animate-fade-in-up">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -101,21 +91,20 @@ const Context = () => {
         >
           <div className="flex flex-wrap lg:flex-row items-center-safe gap-5">
             <span>Đội ngũ</span>
-            <div className="flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md">
+            <div className="flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md group-hover:bg-amber-200">
               <span className="gradient-text uppercase font-extrabold">
-                {texts[currentText]}
+                {texts[currentText].name}
               </span>
             </div>
           </div>
         </h1>
 
-        {/* Sub */}
+        {/* slogan */}
         <p
           className="text-base md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto animate-fade-in-up inline-block px-4 py-2 rounded-xl ring-white/10 drop-shadow"
           style={{ animationDelay: "0.1s" }}
         >
-          Tập trung chất lượng, tốc độ và trải nghiệm. Kết hợp UI/UX hiện đại,
-          hiệu năng cao và DevOps tinh gọn.
+          {texts[currentText].slogan}
         </p>
 
         {/* CTAs */}

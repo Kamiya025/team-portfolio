@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { ThemeToggle } from "./theme-toggle"
-import { Icon } from "./icon"
+import { Icon } from "../icon"
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)

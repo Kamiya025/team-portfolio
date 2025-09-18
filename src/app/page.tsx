@@ -1,9 +1,10 @@
-import { AboutSection } from "@/components/about-section"
-import { FeaturesSection } from "@/components/features-section"
-import { Footer } from "@/components/footer"
-import { Header } from "@/components/header"
-import { HeroSection } from "@/components/hero-section"
-import { TeamSection } from "@/components/team-section"
+import { AboutSection } from "@/components/landing-page/about-section"
+import { FeaturesSection } from "@/components/landing-page/features-section"
+import { Footer } from "@/components/landing-page/footer"
+import { Header } from "@/components/landing-page/header"
+import { HeroSection } from "@/components/landing-page/hero-section"
+import { TeamSection } from "@/components/landing-page/team-section"
+import { BackToTop } from "@/components/ui/back-to-top"
 
 export default function Home() {
   return (
@@ -11,12 +12,13 @@ export default function Home() {
       <Header />
       <main className="w-full">
         <HeroSection />
-        <div className="container">
+        <div>
           <TeamSection />
           <AboutSection />
           <FeaturesSection />
         </div>
       </main>
+      <BackToTop />
       <Footer />
     </div>
   )

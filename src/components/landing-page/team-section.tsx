@@ -1,70 +1,10 @@
 "use client"
 
 import Image from "next/image"
+import { teamMembers, teamStats } from "@/data"
+import { Badge } from "../ui"
 
 export function TeamSection() {
-  const teamMembers = [
-    {
-      name: "Nguyễn Văn A",
-      role: "Tech Lead & Full-stack Developer",
-      avatar: "/user.png",
-      skills: ["React", "Node.js", "TypeScript", "AWS"],
-      description:
-        "5+ năm kinh nghiệm, chuyên về kiến trúc hệ thống và mentoring team.",
-    },
-    {
-      name: "Kamiya",
-      role: "Frontend Developer",
-      avatar: "/user.png",
-      skills: ["React", "Next.js", "React Native", "TailwindCSS"],
-      description:
-        "Chuyên gia UI/UX với đam mê tạo ra giao diện đẹp và trải nghiệm người dùng tuyệt vời.",
-    },
-    {
-      name: "Lê Văn C",
-      role: "Backend Developer",
-      avatar: "/user.png",
-      skills: ["Python", "Django", "PostgreSQL", "Docker"],
-      description: "Expert về backend architecture và database optimization.",
-    },
-    {
-      name: "Trần D",
-      role: "Mobile Developer",
-      avatar: "/user.png",
-      skills: ["React Native", "Flutter", "iOS", "Android"],
-      description:
-        "Chuyên phát triển ứng dụng di động đa nền tảng với hiệu suất cao.",
-    },
-    {
-      name: "Hoàng Văn E",
-      role: "DevOps Engineer",
-      avatar: "/user.png",
-      skills: ["AWS", "Kubernetes", "CI/CD", "Terraform"],
-      description: "Đảm bảo hệ thống hoạt động ổn định và scalable.",
-    },
-    {
-      name: "Võ Thị F",
-      role: "UI/UX Designer",
-      avatar: "/user.png",
-      skills: ["Figma", "Adobe XD", "Sketch", "Prototyping"],
-      description: "Tạo ra những thiết kế sáng tạo và user-friendly.",
-    },
-    {
-      name: "Đặng Văn G",
-      role: "QA Engineer",
-      avatar: "/user.png",
-      skills: ["Testing", "Automation", "Selenium", "Jest"],
-      description: "Đảm bảo chất lượng sản phẩm thông qua testing toàn diện.",
-    },
-    {
-      name: "Bùi Thị H",
-      role: "Data Engineer",
-      avatar: "/user.png",
-      skills: ["Python", "SQL", "Apache Spark", "Machine Learning"],
-      description: "Xử lý và phân tích dữ liệu để đưa ra insights có giá trị.",
-    },
-  ]
-
   return (
     <section
       id="team"
@@ -153,12 +93,14 @@ export function TeamSection() {
 
                 <div className="flex flex-wrap justify-center md:justify-start group-even:md:justify-end gap-3">
                   {member.skills.map((skill, index) => (
-                    <span
+                    <Badge
                       key={skill + index}
-                      className="px-2 py-1 bg-blue-900/20 text-blue-500 text-xs rounded-full font-medium transition-all duration-300 border border-blue-500/30 hover:bg-blue-600/30 hover:text-blue-50 sw-neon-border"
+                      variant="primary"
+                      size="sm"
+                      className="sw-neon-border"
                     >
                       {skill}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </div>
@@ -179,38 +121,18 @@ export function TeamSection() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center group">
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                100%
+            {teamStats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-slate-600 dark:text-slate-300 font-medium">
+                  {stat.label}
+                </div>
               </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Commitment
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                Agile
-              </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Methodology
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                24/7
-              </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Support
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="text-4xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                5★
-              </div>
-              <div className="text-slate-600 dark:text-slate-300 font-medium">
-                Quality
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
