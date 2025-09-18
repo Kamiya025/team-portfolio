@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { useTranslations } from "@/hooks/use-translations"
+import { useTranslations } from "next-intl"
 import { listTeams, TEAM_PHOTO, heroStats } from "@/data/hero"
+import { Link } from "@/i18n/navigation"
 
 export function HeroSection() {
   // Team photo for preview
@@ -31,16 +32,10 @@ export function HeroSection() {
           }}
         />
       </div>
-
-      {/* Content */}
-      <Context />
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in-up"
-        style={{ animationDelay: "0.25s" }}
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-white/60 relative overflow-hidden">
-          <span className="absolute left-1/2 top-2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white/80 animate-bounce"></span>
+      <div>
+        <Context />
+        <div className="mt-10 hidden md:block">
+          <StatsGlass />
         </div>
       </div>
     </section>
@@ -50,16 +45,22 @@ export function HeroSection() {
 const StatsGlass = () => {
   return (
     <div
-      className="mx-auto max-w-full w-3xl grid grid-cols-3 gap-2 sm:gap-4 rounded-2xl liquid-glass p-3 sm:p-4 animate-fade-in-up"
+      className="mx-auto max-w-full w-3xl grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 rounded-2xl liquid-glass p-4 sm:p-4 animate-fade-in-up"
       style={{ animationDelay: "0.2s" }}
     >
       {heroStats.map((stat, index) => (
-        <div key={index} className="rounded-xl p-3">
-          <div className="text-3xl md:text-4xl font-bold text-white">
+        <Link
+          key={index}
+          href={stat.path ?? "#"}
+          className="rounded-xl p-3 sm:p-3 text-center"
+        >
+          <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             {stat.value}
           </div>
-          <div className="text-xs md:text-sm text-white/70">{stat.label}</div>
-        </div>
+          <div className="text-xs sm:text-xs md:text-sm text-white/70 mt-1">
+            {stat.label}
+          </div>
+        </Link>
       ))}
     </div>
   )
@@ -67,7 +68,7 @@ const StatsGlass = () => {
 const Context = () => {
   const [currentText, setCurrentText] = useState(0)
   const texts = listTeams
-  const { t } = useTranslations("hero")
+  const t = useTranslations("hero")
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -78,9 +79,9 @@ const Context = () => {
 
   return (
     <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
-      <div className="space-y-10 group">
+      <div className="space-y-12 group">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker animate-fade-in-up">
+        <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker animate-fade-in-up">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span className="text-sm font-semibold tracking-wide text-white/90">
             {t("subtitle")}
@@ -93,7 +94,7 @@ const Context = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight headline-mono animate-fade-in-up"
             style={{ animationDelay: "0.05s" }}
           >
-            <div className="flex flex-col lg:flex-row items-center-safe gap-5 h-[20dvh]">
+            <div className="flex flex-col lg:flex-row items-center-safe gap-5">
               <span>{t("title")}</span>
               <div className="lg:min-w-sm  flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md group-hover:rotate-3 group-hover:scale-3d">
                 <span className="gradient-text uppercase font-extrabold">
@@ -124,7 +125,6 @@ const Context = () => {
           </button>
         </div>
         {/* Stats glass */}
-        <StatsGlass />
       </div>
     </div>
   )

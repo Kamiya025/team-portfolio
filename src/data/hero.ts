@@ -34,13 +34,16 @@ export const heroStats: HeroStat[] = [
   {
     value: "+30",
     label: "Dự án triển khai",
+    path: "/#projects",
   },
   {
     value: "10+",
     label: "Thành viên cốt lõi",
+    path: "/#team",
   },
   {
     value: "24/7",
     label: "Hỗ trợ & vận hành",
+    path: "/#support",
   },
 ]

@@ -4,10 +4,10 @@ import type { TeamMember } from "@/models"
 import { teamMembers, teamStats } from "@/data"
 import Image from "next/image"
 import { Badge } from "../ui"
-import { useTranslations } from "@/hooks/use-translations"
+import { useTranslations } from "next-intl"
 
 export function TeamSection() {
-  const { t } = useTranslations("team")
+  const t = useTranslations("team")
   return (
     <section
       id="team"

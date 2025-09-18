@@ -3,10 +3,10 @@
 import { technologies, values } from "@/data"
 import { Card, Container, Heading, Section } from "../ui"
 import { ValueIcon } from "../value-icon"
-import { useTranslations } from "@/hooks/use-translations"
+import { useTranslations } from "next-intl"
 
 export function AboutSection() {
-  const { t } = useTranslations("about")
+  const t = useTranslations("about")
   return (
     <Section id="about" variant="muted" size="lg">
       <Container>

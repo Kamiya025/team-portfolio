@@ -1,6 +1,7 @@
 "use client"
 
-import { useTranslations } from "@/hooks/use-translations"
+import { useLocale } from "next-intl"
+import { useRouter, usePathname } from "@/i18n/navigation"
 import { VietnamFlagIcon } from "@/icons"
 import { useState, useEffect } from "react"
 
@@ -66,7 +67,9 @@ const USFlag = () => (
 )
 
 export function LanguageSwitcher() {
-  const { locale, changeLanguage, mounted } = useTranslations()
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
   const [isAnimating, setIsAnimating] = useState(false)
 
   const handleToggle = () => {
@@ -77,7 +80,8 @@ export function LanguageSwitcher() {
 
     // Add a small delay for smooth animation
     setTimeout(() => {
-      changeLanguage(newLocale)
+      // Use the localized router to navigate to the same path with new locale
+      router.replace(pathname, { locale: newLocale })
       setIsAnimating(false)
     }, 200)
   }
@@ -88,14 +92,6 @@ export function LanguageSwitcher() {
       return () => clearTimeout(timer)
     }
   }, [isAnimating])
-
-  if (!mounted) {
-    return (
-      <div className="flex items-center">
-        <div className="w-20 h-10 bg-gray-200 rounded-full animate-pulse"></div>
-      </div>
-    )
-  }
 
   return (
     <div className="flex items-center">

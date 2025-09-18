@@ -133,11 +133,29 @@
     }
   },
   "footer": {
-    "description": "Professional development team, creating innovative technology solutions.",
-    "quickLinks": "Quick Links",
-    "contact": "Contact",
-    "followUs": "Follow Us",
-    "rights": "All rights reserved."
+    "sections": {
+      "company": "Company",
+      "services": "Services",
+      "support": "Support"
+    },
+    "links": {
+      "about": "About Us",
+      "team": "Team",
+      "news": "News",
+      "careers": "Careers",
+      "webDev": "Web Development",
+      "mobileDev": "Mobile App",
+      "design": "UI/UX Design",
+      "consulting": "IT Consulting",
+      "supportCenter": "Support Center",
+      "docs": "Documentation",
+      "api": "API Reference",
+      "status": "Status",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "cookies": "Cookie Policy",
+      "gdpr": "GDPR"
+    }
   },
   "common": {
     "loading": "Loading...",

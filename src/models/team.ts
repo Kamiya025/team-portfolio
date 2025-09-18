@@ -20,4 +20,5 @@ export interface TeamStat {
 export interface HeroStat {
   value: string
   label: string
+  path?: string
 }

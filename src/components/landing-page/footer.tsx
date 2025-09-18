@@ -1,10 +1,41 @@
 "use client"
 
-import { footerLinks, socialLinks, footerContent } from "@/data"
+import { useTranslations } from "next-intl"
+import { socialLinks, footerContent } from "@/data"
 import { SocialIcon } from "../social-icon"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const t = useTranslations("footer")
+
+  // Footer links data
+  const companyLinks = [
+    { name: t("links.about"), href: "#about" },
+    { name: t("links.team"), href: "#team" },
+    { name: t("links.news"), href: "#news" },
+    { name: t("links.careers"), href: "#careers" },
+  ]
+
+  const serviceLinks = [
+    { name: t("links.webDev"), href: "#web-dev" },
+    { name: t("links.mobileDev"), href: "#mobile-dev" },
+    { name: t("links.design"), href: "#design" },
+    { name: t("links.consulting"), href: "#consulting" },
+  ]
+
+  const supportLinks = [
+    { name: t("links.supportCenter"), href: "#support" },
+    { name: t("links.docs"), href: "#docs" },
+    { name: t("links.api"), href: "#api" },
+    { name: t("links.status"), href: "#status" },
+  ]
+
+  const legalLinks = [
+    { name: t("links.privacy"), href: "#privacy" },
+    { name: t("links.terms"), href: "#terms" },
+    { name: t("links.cookies"), href: "#cookies" },
+    { name: t("links.gdpr"), href: "#gdpr" },
+  ]
 
   return (
     <footer className="w-full bg-card border-t border-border">
@@ -37,11 +68,11 @@ export function Footer() {
           {/* Company Links */}
           <div>
             <h3 className="text-lg font-semibold text-card-foreground mb-4">
-              Công ty
+              {t("sections.company")}
             </h3>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
+              {companyLinks.map((link, index) => (
+                <li key={index}>
                   <a
                     href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -56,11 +87,11 @@ export function Footer() {
           {/* Services Links */}
           <div>
             <h3 className="text-lg font-semibold text-card-foreground mb-4">
-              Dịch vụ
+              {t("sections.services")}
             </h3>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
+              {serviceLinks.map((link, index) => (
+                <li key={index}>
                   <a
                     href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -75,11 +106,11 @@ export function Footer() {
           {/* Support Links */}
           <div>
             <h3 className="text-lg font-semibold text-card-foreground mb-4">
-              Hỗ trợ
+              {t("sections.support")}
             </h3>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
+              {supportLinks.map((link, index) => (
+                <li key={index}>
                   <a
                     href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -100,9 +131,9 @@ export function Footer() {
               {footerContent.copyright}
             </div>
             <div className="flex space-x-6 text-sm">
-              {footerLinks.legal.map((link) => (
+              {legalLinks.map((link, index) => (
                 <a
-                  key={link.name}
+                  key={index}
                   href={link.href}
                   className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 >

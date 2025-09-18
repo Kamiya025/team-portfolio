@@ -1,19 +1,19 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { useTranslations } from "@/hooks/use-translations"
+import { useTranslations } from "next-intl"
 import { useMobileMenu } from "@/providers/mobile-menu-provider"
 import { ThemeToggle } from "./theme-toggle"
 import { LanguageSwitcher } from "../language-switcher"
 import { Icon } from "../icon"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } =
     useMobileMenu()
-  const { t } = useTranslations("navigation")
+  const t = useTranslations("navigation")
 
   const navigation = useMemo(
     () => [

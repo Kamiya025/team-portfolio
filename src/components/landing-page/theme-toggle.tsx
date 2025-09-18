@@ -1,21 +1,9 @@
 "use client"
 
 import { useTheme } from "@/providers/theme-provider"
-import { useEffect, useState } from "react"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return (
-      <div className="w-10 h-10 rounded-md border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 animate-pulse" />
-    )
-  }
 
   return (
     <div className="flex items-center">

@@ -1,10 +1,8 @@
-"use client"
-
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Heading } from "@/components/ui/heading"
 import { Section, Container } from "@/components/ui/section"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 
 export default function NotFound() {
   const t = useTranslations()

@@ -6,11 +6,11 @@ import { Card } from "@/components/ui/card"
 import { featuredProjects } from "@/data"
 import { Project } from "@/models"
 import { useState } from "react"
-import { useTranslations } from "@/hooks/use-translations"
+import { useTranslations } from "next-intl"
 
 // Project Status Badge Component
 const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {
-  const { t } = useTranslations("projects")
+  const t = useTranslations("projects")
 
   const getStatusColor = (status: Project["status"]) => {
     switch (status) {
@@ -295,7 +295,7 @@ const CategoryFilter = ({
 
 // Section Header Component
 const SectionHeader = () => {
-  const { t } = useTranslations("projects")
+  const t = useTranslations("projects")
 
   return (
     <div className="text-center mb-16">
@@ -320,7 +320,7 @@ const SectionHeader = () => {
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
-  const { t } = useTranslations("projects")
+  const t = useTranslations("projects")
 
   const categories = [
     { id: "all", label: "Tất cả", count: featuredProjects.length },

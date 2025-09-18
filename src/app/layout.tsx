@@ -1,46 +1,9 @@
-import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/providers/theme-provider"
-import { LanguageProvider } from "@/providers/language-provider"
-import { MobileMenuProvider } from "@/providers/mobile-menu-provider"
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-})
-
-export const metadata: Metadata = {
-  title: "Team Portfolio",
-  description: "Team portfolio with dark mode support",
-}
-
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="vi" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
-      >
-        <LanguageProvider>
-          <ThemeProvider
-            defaultTheme="system"
-            storageKey="team-portfolio-theme"
-          >
-            <MobileMenuProvider>{children}</MobileMenuProvider>
-          </ThemeProvider>
-        </LanguageProvider>
-      </body>
-    </html>
-  )
+  return children
 }

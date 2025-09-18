@@ -133,11 +133,29 @@
     }
   },
   "footer": {
-    "description": "Đội ngũ phát triển chuyên nghiệp, tạo ra những giải pháp công nghệ sáng tạo.",
-    "quickLinks": "Liên kết nhanh",
-    "contact": "Liên hệ",
-    "followUs": "Theo dõi chúng tôi",
-    "rights": "Tất cả quyền được bảo lưu."
+    "sections": {
+      "company": "Công ty",
+      "services": "Dịch vụ",
+      "support": "Hỗ trợ"
+    },
+    "links": {
+      "about": "Về chúng tôi",
+      "team": "Đội ngũ",
+      "news": "Tin tức",
+      "careers": "Tuyển dụng",
+      "webDev": "Phát triển Web",
+      "mobileDev": "Ứng dụng Mobile",
+      "design": "UI/UX Design",
+      "consulting": "Tư vấn IT",
+      "supportCenter": "Trung tâm hỗ trợ",
+      "docs": "Tài liệu",
+      "api": "API Reference",
+      "status": "Status",
+      "privacy": "Chính sách bảo mật",
+      "terms": "Điều khoản sử dụng",
+      "cookies": "Cookie Policy",
+      "gdpr": "GDPR"
+    }
   },
   "common": {
     "loading": "Đang tải...",

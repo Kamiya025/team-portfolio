@@ -4,10 +4,10 @@ import { Icon } from "../icon"
 import { skills } from "@/data"
 import type { Skill } from "@/models"
 import { Button, Section, Container, Heading } from "../ui"
-import { useTranslations } from "@/hooks/use-translations"
+import { useTranslations } from "next-intl"
 
 export function FeaturesSection() {
-  const { t } = useTranslations("features")
+  const t = useTranslations("features")
   return (
     <Section id="services" variant="gradient" size="lg">
       <Container>
@@ -50,7 +50,7 @@ export function FeaturesSection() {
   )
 }
 const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => {
-  const { t } = useTranslations("features")
+  const t = useTranslations("features")
   const skillKeys = [
     "frontend",
     "backend",
