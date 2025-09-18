@@ -34,6 +34,7 @@
       ]
     },
     "values": {
+      "title": "Core Values",
       "speed": {
         "title": "Speed & Performance",
         "description": "We always optimize code and processes to ensure products run fast and smoothly."
@@ -50,6 +51,9 @@
         "title": "Innovation",
         "description": "Always seeking new solutions and creative approaches to every problem."
       }
+    },
+    "technologies": {
+      "title": "Technologies We Use"
     }
   },
   "features": {

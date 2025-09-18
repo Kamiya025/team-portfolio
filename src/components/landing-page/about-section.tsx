@@ -74,7 +74,7 @@ export function AboutSection() {
             size="md"
             className="text-center mb-12"
           >
-            Giá trị cốt lõi
+            {t("values.title")}
           </Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
@@ -114,10 +114,11 @@ export function AboutSection() {
   )
 }
 const Technologies = () => {
+  const t = useTranslations("about")
   return (
     <div>
       <h3 className="text-3xl font-bold text-foreground text-center mb-12">
-        Công nghệ chúng tôi sử dụng
+        {t("technologies.title")}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {technologies.map((tech, index) => (

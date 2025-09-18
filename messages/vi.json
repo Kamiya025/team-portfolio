@@ -34,6 +34,7 @@
       ]
     },
     "values": {
+      "title": "Giá trị cốt lõi",
       "speed": {
         "title": "Tốc độ & Hiệu suất",
         "description": "Chúng tôi luôn tối ưu hóa code và quy trình để đảm bảo sản phẩm hoạt động nhanh và mượt mà."
@@ -50,6 +51,9 @@
         "title": "Sáng tạo",
         "description": "Luôn tìm kiếm những giải pháp mới và cách tiếp cận sáng tạo cho mọi vấn đề."
       }
+    },
+    "technologies": {
+      "title": "Công nghệ chúng tôi sử dụng"
     }
   },
   "features": {
