@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "features": "Features",
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Welcome to Team Portfolio",
+    "subtitle": "We are a professional development team",
+    "cta": "Explore Projects",
+    "learnMore": "Learn More"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are a technology-passionate team with years of experience in developing modern web applications and high-quality software solutions.",
+    "mission": "Our Mission",
+    "missionText": "To deliver the best technology products, helping clients achieve their business goals and create sustainable value.",
+    "vision": "Our Vision",
+    "visionText": "To become the leading trusted technology partner, recognized for quality and innovation in the industry."
+  },
+  "features": {
+    "title": "Key Features",
+    "subtitle": "Strengths and capabilities of our team",
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Modern user interface development with React, Next.js and the latest cutting-edge technologies."
+    },
+    "backend": {
+      "title": "Backend Development",
+      "description": "Building powerful APIs and stable backend systems with Node.js, Python and modern frameworks."
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": "Cross-platform mobile app development with React Native and Flutter."
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Beautiful interface design and optimal user experience."
+    },
+    "devops": {
+      "title": "DevOps & Cloud",
+      "description": "Deploying and managing systems on cloud with AWS, Docker and Kubernetes."
+    },
+    "data": {
+      "title": "Data Science",
+      "description": "Data analysis and building AI/ML models to optimize performance."
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Projects we are proud to have completed",
+    "viewProject": "View Project",
+    "viewCode": "View Code"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "The talented people behind amazing products",
+    "role": {
+      "frontend": "Frontend Developer",
+      "backend": "Backend Developer",
+      "fullstack": "Full Stack Developer",
+      "designer": "UI/UX Designer",
+      "devops": "DevOps Engineer",
+      "data": "Data Scientist"
+    }
+  },
+  "footer": {
+    "description": "Professional development team, creating innovative technology solutions.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "readMore": "Read More",
+    "showLess": "Show Less"
+  }
+}

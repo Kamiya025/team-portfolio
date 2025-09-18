@@ -1,0 +1,88 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "features": "Tính năng",
+    "projects": "Dự án",
+    "team": "Đội ngũ",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "title": "Chào mừng đến với Team Portfolio",
+    "subtitle": "Chúng tôi là một đội ngũ phát triển chuyên nghiệp",
+    "cta": "Khám phá dự án",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "about": {
+    "title": "Về chúng tôi",
+    "description": "Chúng tôi là một đội ngũ đam mê công nghệ với nhiều năm kinh nghiệm trong việc phát triển các ứng dụng web hiện đại và giải pháp phần mềm chất lượng cao.",
+    "mission": "Sứ mệnh của chúng tôi",
+    "missionText": "Mang đến những sản phẩm công nghệ tốt nhất, giúp khách hàng đạt được mục tiêu kinh doanh và tạo ra giá trị bền vững.",
+    "vision": "Tầm nhìn",
+    "visionText": "Trở thành đối tác công nghệ tin cậy hàng đầu, được công nhận về chất lượng và sự đổi mới trong ngành."
+  },
+  "features": {
+    "title": "Tính năng nổi bật",
+    "subtitle": "Những điểm mạnh và khả năng của đội ngũ chúng tôi",
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Phát triển giao diện người dùng hiện đại với React, Next.js và các công nghệ tiên tiến nhất."
+    },
+    "backend": {
+      "title": "Backend Development",
+      "description": "Xây dựng API mạnh mẽ và hệ thống backend ổn định với Node.js, Python và các framework hiện đại."
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": "Phát triển ứng dụng di động đa nền tảng với React Native và Flutter."
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Thiết kế giao diện đẹp mắt và trải nghiệm người dùng tối ưu."
+    },
+    "devops": {
+      "title": "DevOps & Cloud",
+      "description": "Triển khai và quản lý hệ thống trên cloud với AWS, Docker và Kubernetes."
+    },
+    "data": {
+      "title": "Data Science",
+      "description": "Phân tích dữ liệu và xây dựng các mô hình AI/ML để tối ưu hóa hiệu suất."
+    }
+  },
+  "projects": {
+    "title": "Dự án nổi bật",
+    "subtitle": "Những dự án chúng tôi tự hào đã hoàn thành",
+    "viewProject": "Xem dự án",
+    "viewCode": "Xem mã nguồn"
+  },
+  "team": {
+    "title": "Đội ngũ của chúng tôi",
+    "subtitle": "Những con người tài năng đằng sau các sản phẩm tuyệt vời",
+    "role": {
+      "frontend": "Frontend Developer",
+      "backend": "Backend Developer",
+      "fullstack": "Full Stack Developer",
+      "designer": "UI/UX Designer",
+      "devops": "DevOps Engineer",
+      "data": "Data Scientist"
+    }
+  },
+  "footer": {
+    "description": "Đội ngũ phát triển chuyên nghiệp, tạo ra những giải pháp công nghệ sáng tạo.",
+    "quickLinks": "Liên kết nhanh",
+    "contact": "Liên hệ",
+    "followUs": "Theo dõi chúng tôi",
+    "rights": "Tất cả quyền được bảo lưu."
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Có lỗi xảy ra",
+    "retry": "Thử lại",
+    "close": "Đóng",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "submit": "Gửi",
+    "readMore": "Đọc thêm",
+    "showLess": "Thu gọn"
+  }
+}

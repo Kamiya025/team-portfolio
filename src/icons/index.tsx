@@ -12,7 +12,7 @@ import MenuIcon from "./menu.svg"
 import MobileIcon from "./mobile.svg"
 import SkillsIcon from "./skills.svg"
 import TeamIcon from "./team.svg"
-
+import VietnamFlagIcon from "./vietnam-flag.svg"
 export {
   AboutIcon,
   BackendIcon,
@@ -27,4 +27,5 @@ export {
   MobileIcon,
   SkillsIcon,
   TeamIcon,
+  VietnamFlagIcon,
 }

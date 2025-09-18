@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/providers/theme-provider"
+import { LanguageProvider } from "@/providers/language-provider"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,17 +23,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="vi" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <ThemeProvider defaultTheme="system" storageKey="team-portfolio-theme">
-          {children}
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider
+            defaultTheme="system"
+            storageKey="team-portfolio-theme"
+          >
+            {children}
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

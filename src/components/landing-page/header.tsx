@@ -1,42 +1,45 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
+import { useTranslations } from "@/hooks/use-translations"
 import { ThemeToggle } from "./theme-toggle"
+import { LanguageSwitcher } from "../language-switcher"
 import { Icon } from "../icon"
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const { t } = useTranslations("navigation")
 
   const navigation = useMemo(
     () => [
       {
-        name: "Trang chủ",
+        name: t("home"),
         href: "#home",
         icon: "home",
       },
       {
-        name: "Đội ngũ",
+        name: t("team"),
         href: "#team",
         icon: "team",
       },
       {
-        name: "Về chúng tôi",
+        name: t("about"),
         href: "#about",
         icon: "about",
       },
       {
-        name: "Kỹ năng",
+        name: t("features"),
         href: "#services",
         icon: "skills",
       },
       {
-        name: "Dự án",
+        name: t("projects"),
         href: "#projects",
         icon: "data",
       },
     ],
-    []
+    [t]
   )
 
   // Handle scroll effect
@@ -131,14 +134,10 @@ export function Header() {
 
             {/* Right side controls */}
             <div className="flex items-center space-x-2 sm:space-x-3">
+              {/* Language Switcher */}
+              <LanguageSwitcher />
               {/* Theme Toggle */}
-              <div
-                className={`flex items-center ${
-                  scrolled ? "" : "bg-white/20 rounded-full p-1"
-                }`}
-              >
-                <ThemeToggle />
-              </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { useTranslations } from "@/hooks/use-translations"
 import { listTeams, TEAM_PHOTO, heroStats } from "@/data/hero"
 
 export function HeroSection() {
@@ -66,6 +67,8 @@ const StatsGlass = () => {
 const Context = () => {
   const [currentText, setCurrentText] = useState(0)
   const texts = listTeams
+  const { t } = useTranslations("hero")
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % texts.length)
@@ -80,7 +83,7 @@ const Context = () => {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker animate-fade-in-up">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span className="text-sm font-semibold tracking-wide text-white/90">
-            Chúng tôi xây dựng sản phẩm số đẳng cấp
+            {t("subtitle")}
           </span>
         </div>
 
@@ -114,10 +117,10 @@ const Context = () => {
           style={{ animationDelay: "0.15s" }}
         >
           <button className="glass-button gradient-border px-8 py-4 rounded-xl text-lg font-semibold text-white">
-            Xem portfolio
+            {t("cta")}
           </button>
           <button className="px-8 py-4 rounded-xl text-lg font-semibold text-palette-1 bg-white hover:bg-palette-4 hover:text-white transition-colors duration-300 btn-neon">
-            Liên hệ ngay
+            {t("learnMore")}
           </button>
         </div>
         {/* Stats glass */}
