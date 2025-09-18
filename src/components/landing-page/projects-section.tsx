@@ -207,10 +207,6 @@ const ProjectHeader = ({ project }: { project: Project }) => {
             <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
               {getLocalizedString(project.title, locale)}
             </h3>
-            <div className="flex items-center gap-2 mt-1">
-              <ProjectStatusBadge status={project.status} />
-              <span className="text-xs text-white/50">{project.year}</span>
-            </div>
           </div>
         </div>
       </div>
