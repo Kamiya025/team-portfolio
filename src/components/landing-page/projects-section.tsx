@@ -3,12 +3,15 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { featuredProjects, projectsContent } from "@/data"
+import { featuredProjects } from "@/data"
 import { Project } from "@/models"
 import { useState } from "react"
+import { useTranslations } from "@/hooks/use-translations"
 
 // Project Status Badge Component
 const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {
+  const { t } = useTranslations("projects")
+
   const getStatusColor = (status: Project["status"]) => {
     switch (status) {
       case "completed":
@@ -25,13 +28,13 @@ const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {
   const getStatusText = (status: Project["status"]) => {
     switch (status) {
       case "completed":
-        return "Hoàn thành"
+        return t("status.completed")
       case "in-progress":
-        return "Đang phát triển"
+        return t("status.in-progress")
       case "upcoming":
-        return "Sắp ra mắt"
+        return t("status.upcoming")
       default:
-        return "Không xác định"
+        return t("status.unknown")
     }
   }
 
@@ -292,21 +295,23 @@ const CategoryFilter = ({
 
 // Section Header Component
 const SectionHeader = () => {
+  const { t } = useTranslations("projects")
+
   return (
     <div className="text-center mb-16">
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker mb-6">
         <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
         <span className="text-sm font-semibold tracking-wide text-white/90">
-          {projectsContent.subtitle}
+          {t("subtitle")}
         </span>
       </div>
 
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-        {projectsContent.title}
+        {t("title")}
       </h2>
 
       <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-        {projectsContent.description}
+        {t("description")}
       </p>
     </div>
   )
@@ -315,27 +320,28 @@ const SectionHeader = () => {
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+  const { t } = useTranslations("projects")
 
   const categories = [
     { id: "all", label: "Tất cả", count: featuredProjects.length },
     {
       id: "web",
-      label: "Web",
+      label: t("categories.web"),
       count: featuredProjects.filter((p) => p.category === "web").length,
     },
     {
       id: "mobile",
-      label: "Mobile",
+      label: t("categories.mobile"),
       count: featuredProjects.filter((p) => p.category === "mobile").length,
     },
     {
       id: "ai",
-      label: "AI",
+      label: t("categories.ai"),
       count: featuredProjects.filter((p) => p.category === "ai").length,
     },
     {
       id: "other",
-      label: "Khác",
+      label: t("categories.desktop"),
       count: featuredProjects.filter((p) => p.category === "other").length,
     },
   ]

@@ -21,7 +21,3 @@ export type { SectionProps, ContainerProps } from "./section"
 // Heading
 export { Heading } from "./heading"
 export type { HeadingProps } from "./heading"
-
-// Scrollbar
-export { Scrollbar } from "./scrollbar"
-export type { ScrollbarProps } from "./scrollbar"

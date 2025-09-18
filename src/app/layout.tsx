@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/providers/theme-provider"
 import { LanguageProvider } from "@/providers/language-provider"
+import { MobileMenuProvider } from "@/providers/mobile-menu-provider"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,7 +37,7 @@ export default function RootLayout({
             defaultTheme="system"
             storageKey="team-portfolio-theme"
           >
-            {children}
+            <MobileMenuProvider>{children}</MobileMenuProvider>
           </ThemeProvider>
         </LanguageProvider>
       </body>

@@ -8,63 +8,128 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Welcome to Team Portfolio",
+    "title": "Team",
     "subtitle": "We are a professional development team",
     "cta": "Explore Projects",
     "learnMore": "Learn More"
   },
   "about": {
     "title": "About Us",
-    "description": "We are a technology-passionate team with years of experience in developing modern web applications and high-quality software solutions.",
-    "mission": "Our Mission",
-    "missionText": "To deliver the best technology products, helping clients achieve their business goals and create sustainable value.",
-    "vision": "Our Vision",
-    "visionText": "To become the leading trusted technology partner, recognized for quality and innovation in the industry."
+    "description": "We are a young, dynamic and passionate team of developers with technology, always ready to take on new challenges.",
+    "story": {
+      "title": "Our Story",
+      "paragraphs": [
+        "Founded in 2019, we started with 3 members who share a passion for technology and a desire to create meaningful products.",
+        "From our first small projects, we have continuously learned, developed and expanded our team. Currently, we are proud to have 8 talented members, each of whom is an expert in their field.",
+        "We believe that technology can change the world, and we want to be part of that change."
+      ]
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To create high-quality technology products that meet the real needs of users and contribute to the development of the Vietnamese tech community.",
+      "points": [
+        "Continuous innovation",
+        "Quality is the top priority",
+        "Continuous learning and development"
+      ]
+    },
+    "values": {
+      "speed": {
+        "title": "Speed & Performance",
+        "description": "We always optimize code and processes to ensure products run fast and smoothly."
+      },
+      "quality": {
+        "title": "High Quality",
+        "description": "Every line of code is carefully reviewed and thoroughly tested before deployment."
+      },
+      "teamwork": {
+        "title": "Teamwork",
+        "description": "Collaboration and mutual support are the foundation of every successful project."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Always seeking new solutions and creative approaches to every problem."
+      }
+    }
   },
   "features": {
-    "title": "Key Features",
-    "subtitle": "Strengths and capabilities of our team",
+    "title": "Skills & Technology",
+    "subtitle": "We possess diverse skills and experience in modern technology fields",
     "frontend": {
       "title": "Frontend Development",
-      "description": "Modern user interface development with React, Next.js and the latest cutting-edge technologies."
+      "description": "React, Vue.js, Next.js, TypeScript, TailwindCSS - Creating modern and responsive user interfaces."
     },
     "backend": {
       "title": "Backend Development",
-      "description": "Building powerful APIs and stable backend systems with Node.js, Python and modern frameworks."
+      "description": "Node.js, Python, Django, PostgreSQL, MongoDB - Building powerful APIs and scalable backend systems."
     },
     "mobile": {
       "title": "Mobile Development",
-      "description": "Cross-platform mobile app development with React Native and Flutter."
+      "description": "React Native, Flutter, iOS, Android - Developing cross-platform mobile applications with high performance."
     },
     "design": {
       "title": "UI/UX Design",
-      "description": "Beautiful interface design and optimal user experience."
+      "description": "Figma, Adobe XD, Sketch, Prototyping - Creating beautiful interfaces and optimal user experiences."
     },
     "devops": {
       "title": "DevOps & Cloud",
-      "description": "Deploying and managing systems on cloud with AWS, Docker and Kubernetes."
+      "description": "AWS, Docker, Kubernetes, CI/CD - Deploying and operating cloud systems efficiently."
     },
     "data": {
-      "title": "Data Science",
-      "description": "Data analysis and building AI/ML models to optimize performance."
+      "title": "Data & Analytics",
+      "description": "Python, SQL, Apache Spark, Machine Learning - Processing and analyzing data to provide valuable insights."
+    },
+    "cta": {
+      "title": "Do you have a project that needs support?",
+      "description": "Let us help you turn your ideas into reality",
+      "buttons": {
+        "portfolio": "View Portfolio",
+        "contact": "Contact Now"
+      }
     }
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Projects we are proud to have completed",
+    "subtitle": "Portfolio",
+    "description": "Explore the premium projects we have completed, from modern web applications to advanced AI solutions, all developed to the highest standards.",
     "viewProject": "View Project",
-    "viewCode": "View Code"
+    "viewCode": "View Code",
+    "status": {
+      "completed": "Completed",
+      "in-progress": "In Progress",
+      "upcoming": "Coming Soon",
+      "unknown": "Unknown"
+    },
+    "categories": {
+      "web": "Web Application",
+      "mobile": "Mobile App",
+      "ai": "AI/ML Solution",
+      "desktop": "Desktop App"
+    },
+    "cta": {
+      "viewAll": "View All Projects",
+      "viewDetails": "View Details"
+    }
   },
   "team": {
     "title": "Our Team",
-    "subtitle": "The talented people behind amazing products",
+    "subtitle": "Talented and technology-passionate people, working together to create high-quality software products.",
+    "badge": "Professional Team",
     "role": {
       "frontend": "Frontend Developer",
       "backend": "Backend Developer",
       "fullstack": "Full Stack Developer",
       "designer": "UI/UX Designer",
       "devops": "DevOps Engineer",
-      "data": "Data Scientist"
+      "data": "Data Scientist",
+      "mobile": "Mobile Developer",
+      "qa": "QA Engineer"
+    },
+    "stats": {
+      "commitment": "Commitment",
+      "methodology": "Methodology",
+      "support": "Support",
+      "quality": "Quality"
     }
   },
   "footer": {
@@ -83,6 +148,24 @@
     "cancel": "Cancel",
     "submit": "Submit",
     "readMore": "Read More",
-    "showLess": "Show Less"
+    "showLess": "Show Less",
+    "viewAll": "View All",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "backToTop": "Back to Top"
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "switch": "Switch Language"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "subtitle": "Oops! The page you're looking for doesn't exist.",
+    "description": "It seems you've wandered into the digital void. Don't worry, we'll get you back home!",
+    "backHome": "Back to Home",
+    "exploreProjects": "Explore Projects",
+    "errorCode": "404"
   }
 }

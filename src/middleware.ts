@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 
-export function middleware(request: NextRequest) {
+export function middleware() {
   // Không cần xử lý locale routing, chỉ cần pass through
   return NextResponse.next()
 }

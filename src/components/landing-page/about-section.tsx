@@ -1,20 +1,22 @@
 "use client"
 
-import { aboutContent, technologies, values } from "@/data"
+import { technologies, values } from "@/data"
 import { Card, Container, Heading, Section } from "../ui"
 import { ValueIcon } from "../value-icon"
+import { useTranslations } from "@/hooks/use-translations"
 
 export function AboutSection() {
+  const { t } = useTranslations("about")
   return (
     <Section id="about" variant="muted" size="lg">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
           <Heading level={2} variant="default" size="lg" className="mb-6">
-            {aboutContent.title}
+            {t("title")}
           </Heading>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {aboutContent.description}
+            {t("description")}
           </p>
         </div>
 
@@ -22,12 +24,12 @@ export function AboutSection() {
           {/* Story */}
           <div className="animate-fade-in-left">
             <Heading level={3} variant="default" size="md" className="mb-6">
-              {aboutContent.story.title}
+              {t("story.title")}
             </Heading>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              {aboutContent.story.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+              <p>{t("story.paragraphs.0")}</p>
+              <p>{t("story.paragraphs.1")}</p>
+              <p>{t("story.paragraphs.2")}</p>
             </div>
           </div>
 
@@ -35,18 +37,30 @@ export function AboutSection() {
           <div className="animate-fade-in-right">
             <Card variant="gradient" className="p-8">
               <Heading level={3} variant="default" size="sm" className="mb-6">
-                {aboutContent.mission.title}
+                {t("mission.title")}
               </Heading>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                {aboutContent.mission.description}
+                {t("mission.description")}
               </p>
               <div className="space-y-4">
-                {aboutContent.mission.points.map((point, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-palette-1 rounded-full"></div>
-                    <span className="text-foreground">{point}</span>
-                  </div>
-                ))}
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-palette-1 rounded-full"></div>
+                  <span className="text-foreground">
+                    {t("mission.points.0")}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-palette-1 rounded-full"></div>
+                  <span className="text-foreground">
+                    {t("mission.points.1")}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-palette-1 rounded-full"></div>
+                  <span className="text-foreground">
+                    {t("mission.points.2")}
+                  </span>
+                </div>
               </div>
             </Card>
           </div>
@@ -63,24 +77,33 @@ export function AboutSection() {
             Giá trị cốt lõi
           </Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card
-                key={index}
-                variant="bordered"
-                className="text-center p-6 hover-lift animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-center justify-center w-16 h-16 bg-palette-1/10 text-palette-1 rounded-lg mx-auto mb-4">
-                  <ValueIcon icon={value.icon} />
-                </div>
-                <Heading level={4} variant="default" size="sm" className="mb-3">
-                  {value.title}
-                </Heading>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </Card>
-            ))}
+            {values.map((value, index) => {
+              const valueKeys = ["speed", "quality", "teamwork", "innovation"]
+              const valueKey = valueKeys[index]
+              return (
+                <Card
+                  key={index}
+                  variant="bordered"
+                  className="text-center p-6 hover-lift animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-center justify-center w-16 h-16 bg-palette-1/10 text-palette-1 rounded-lg mx-auto mb-4">
+                    <ValueIcon icon={value.icon} />
+                  </div>
+                  <Heading
+                    level={4}
+                    variant="default"
+                    size="sm"
+                    className="mb-3"
+                  >
+                    {t(`values.${valueKey}.title`)}
+                  </Heading>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {t(`values.${valueKey}.description`)}
+                  </p>
+                </Card>
+              )
+            })}
           </div>
         </div>
 

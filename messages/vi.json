@@ -8,63 +8,128 @@
     "contact": "Liên hệ"
   },
   "hero": {
-    "title": "Chào mừng đến với Team Portfolio",
-    "subtitle": "Chúng tôi là một đội ngũ phát triển chuyên nghiệp",
+    "title": "Đội ngũ",
+    "subtitle": " Chúng tôi xây dựng sản phẩm số đẳng cấp",
     "cta": "Khám phá dự án",
     "learnMore": "Tìm hiểu thêm"
   },
   "about": {
     "title": "Về chúng tôi",
-    "description": "Chúng tôi là một đội ngũ đam mê công nghệ với nhiều năm kinh nghiệm trong việc phát triển các ứng dụng web hiện đại và giải pháp phần mềm chất lượng cao.",
-    "mission": "Sứ mệnh của chúng tôi",
-    "missionText": "Mang đến những sản phẩm công nghệ tốt nhất, giúp khách hàng đạt được mục tiêu kinh doanh và tạo ra giá trị bền vững.",
-    "vision": "Tầm nhìn",
-    "visionText": "Trở thành đối tác công nghệ tin cậy hàng đầu, được công nhận về chất lượng và sự đổi mới trong ngành."
+    "description": "Chúng tôi là một đội ngũ developers trẻ trung, năng động và đầy đam mê với công nghệ, luôn sẵn sàng đón nhận những thử thách mới.",
+    "story": {
+      "title": "Câu chuyện của chúng tôi",
+      "paragraphs": [
+        "Được thành lập vào năm 2019, chúng tôi bắt đầu với 3 thành viên có chung đam mê về công nghệ và mong muốn tạo ra những sản phẩm có ý nghĩa.",
+        "Từ những dự án nhỏ đầu tiên, chúng tôi đã không ngừng học hỏi, phát triển và mở rộng đội ngũ. Hiện tại, chúng tôi tự hào có 8 thành viên tài năng, mỗi người đều là chuyên gia trong lĩnh vực của mình.",
+        "Chúng tôi tin rằng công nghệ có thể thay đổi thế giới, và chúng tôi muốn là một phần của sự thay đổi đó."
+      ]
+    },
+    "mission": {
+      "title": "Sứ mệnh của chúng tôi",
+      "description": "Tạo ra những sản phẩm công nghệ chất lượng cao, đáp ứng nhu cầu thực tế của người dùng và góp phần phát triển cộng đồng tech Việt Nam.",
+      "points": [
+        "Đổi mới sáng tạo không ngừng",
+        "Chất lượng là ưu tiên hàng đầu",
+        "Học hỏi và phát triển liên tục"
+      ]
+    },
+    "values": {
+      "speed": {
+        "title": "Tốc độ & Hiệu suất",
+        "description": "Chúng tôi luôn tối ưu hóa code và quy trình để đảm bảo sản phẩm hoạt động nhanh và mượt mà."
+      },
+      "quality": {
+        "title": "Chất lượng cao",
+        "description": "Mọi dòng code đều được review kỹ lưỡng và test toàn diện trước khi deploy."
+      },
+      "teamwork": {
+        "title": "Làm việc nhóm",
+        "description": "Tinh thần hợp tác và hỗ trợ lẫn nhau là nền tảng của mọi dự án thành công."
+      },
+      "innovation": {
+        "title": "Sáng tạo",
+        "description": "Luôn tìm kiếm những giải pháp mới và cách tiếp cận sáng tạo cho mọi vấn đề."
+      }
+    }
   },
   "features": {
-    "title": "Tính năng nổi bật",
-    "subtitle": "Những điểm mạnh và khả năng của đội ngũ chúng tôi",
+    "title": "Kỹ năng & Công nghệ",
+    "subtitle": "Chúng tôi sở hữu đa dạng kỹ năng và kinh nghiệm trong các lĩnh vực công nghệ hiện đại",
     "frontend": {
       "title": "Frontend Development",
-      "description": "Phát triển giao diện người dùng hiện đại với React, Next.js và các công nghệ tiên tiến nhất."
+      "description": "React, Vue.js, Next.js, TypeScript, TailwindCSS - Tạo ra giao diện người dùng hiện đại và responsive."
     },
     "backend": {
       "title": "Backend Development",
-      "description": "Xây dựng API mạnh mẽ và hệ thống backend ổn định với Node.js, Python và các framework hiện đại."
+      "description": "Node.js, Python, Django, PostgreSQL, MongoDB - Xây dựng API mạnh mẽ và hệ thống backend scalable."
     },
     "mobile": {
       "title": "Mobile Development",
-      "description": "Phát triển ứng dụng di động đa nền tảng với React Native và Flutter."
+      "description": "React Native, Flutter, iOS, Android - Phát triển ứng dụng di động đa nền tảng với hiệu suất cao."
     },
     "design": {
       "title": "UI/UX Design",
-      "description": "Thiết kế giao diện đẹp mắt và trải nghiệm người dùng tối ưu."
+      "description": "Figma, Adobe XD, Sketch, Prototyping - Thiết kế giao diện đẹp mắt và trải nghiệm người dùng tối ưu."
     },
     "devops": {
       "title": "DevOps & Cloud",
-      "description": "Triển khai và quản lý hệ thống trên cloud với AWS, Docker và Kubernetes."
+      "description": "AWS, Docker, Kubernetes, CI/CD - Triển khai và vận hành hệ thống trên cloud một cách hiệu quả."
     },
     "data": {
-      "title": "Data Science",
-      "description": "Phân tích dữ liệu và xây dựng các mô hình AI/ML để tối ưu hóa hiệu suất."
+      "title": "Data & Analytics",
+      "description": "Python, SQL, Apache Spark, Machine Learning - Xử lý và phân tích dữ liệu để đưa ra insights có giá trị."
+    },
+    "cta": {
+      "title": "Bạn có dự án cần hỗ trợ?",
+      "description": "Hãy để chúng tôi giúp bạn biến ý tưởng thành hiện thực",
+      "buttons": {
+        "portfolio": "Xem Portfolio",
+        "contact": "Liên hệ ngay"
+      }
     }
   },
   "projects": {
     "title": "Dự án nổi bật",
-    "subtitle": "Những dự án chúng tôi tự hào đã hoàn thành",
+    "subtitle": "Portfolio",
+    "description": "Khám phá những dự án đẳng cấp mà chúng tôi đã thực hiện, từ ứng dụng web hiện đại đến giải pháp AI tiên tiến, tất cả đều được phát triển với tiêu chuẩn cao nhất.",
     "viewProject": "Xem dự án",
-    "viewCode": "Xem mã nguồn"
+    "viewCode": "Xem mã nguồn",
+    "status": {
+      "completed": "Hoàn thành",
+      "in-progress": "Đang phát triển",
+      "upcoming": "Sắp ra mắt",
+      "unknown": "Không xác định"
+    },
+    "categories": {
+      "web": "Web Application",
+      "mobile": "Mobile App",
+      "ai": "AI/ML Solution",
+      "desktop": "Desktop App"
+    },
+    "cta": {
+      "viewAll": "Xem tất cả dự án",
+      "viewDetails": "Xem chi tiết"
+    }
   },
   "team": {
     "title": "Đội ngũ của chúng tôi",
-    "subtitle": "Những con người tài năng đằng sau các sản phẩm tuyệt vời",
+    "subtitle": "Những con người tài năng và đam mê công nghệ, cùng nhau tạo nên những sản phẩm phần mềm chất lượng cao.",
+    "badge": "Đội ngũ chuyên nghiệp",
     "role": {
       "frontend": "Frontend Developer",
       "backend": "Backend Developer",
       "fullstack": "Full Stack Developer",
       "designer": "UI/UX Designer",
       "devops": "DevOps Engineer",
-      "data": "Data Scientist"
+      "data": "Data Scientist",
+      "mobile": "Mobile Developer",
+      "qa": "QA Engineer"
+    },
+    "stats": {
+      "commitment": "Commitment",
+      "methodology": "Methodology",
+      "support": "Support",
+      "quality": "Quality"
     }
   },
   "footer": {
@@ -83,6 +148,24 @@
     "cancel": "Hủy",
     "submit": "Gửi",
     "readMore": "Đọc thêm",
-    "showLess": "Thu gọn"
+    "showLess": "Thu gọn",
+    "viewAll": "Xem tất cả",
+    "learnMore": "Tìm hiểu thêm",
+    "getStarted": "Bắt đầu",
+    "contactUs": "Liên hệ với chúng tôi",
+    "backToTop": "Về đầu trang"
+  },
+  "language": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "switch": "Chuyển đổi ngôn ngữ"
+  },
+  "notFound": {
+    "title": "404 - Không tìm thấy trang",
+    "subtitle": "Oops! Trang bạn đang tìm kiếm không tồn tại.",
+    "description": "Có vẻ như bạn đã đi lạc vào vùng không gian mạng. Đừng lo lắng, chúng tôi sẽ đưa bạn về nhà!",
+    "backHome": "Về trang chủ",
+    "exploreProjects": "Khám phá dự án",
+    "errorCode": "404"
   }
 }

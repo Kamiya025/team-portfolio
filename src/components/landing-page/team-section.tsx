@@ -4,8 +4,10 @@ import type { TeamMember } from "@/models"
 import { teamMembers, teamStats } from "@/data"
 import Image from "next/image"
 import { Badge } from "../ui"
+import { useTranslations } from "@/hooks/use-translations"
 
 export function TeamSection() {
+  const { t } = useTranslations("team")
   return (
     <section
       id="team"
@@ -20,15 +22,14 @@ export function TeamSection() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/20 dark:bg-blue-900/20 text-blue-300 text-sm font-medium mb-6 sw-neon-border">
             <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
-            Đội ngũ chuyên nghiệp
+            {t("badge")}
           </div>
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-            Đội ngũ của chúng tôi
+            {t("title")}
           </h2>
           <div className="mx-auto w-40 md:w-52 rounded-full sw-saber-underline mb-6"></div>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Những con người tài năng và đam mê công nghệ, cùng nhau tạo nên
-            những sản phẩm phần mềm chất lượng cao.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -56,18 +57,27 @@ export function TeamSection() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {teamStats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div
-                  className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  {stat.value}
+            {teamStats.map((stat, index) => {
+              const statKeys = [
+                "commitment",
+                "methodology",
+                "support",
+                "quality",
+              ]
+              const statKey = statKeys[index]
+              return (
+                <div key={index} className="text-center group">
+                  <div
+                    className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-slate-600 dark:text-slate-300 font-medium">
+                    {t(`stats.${statKey}`)}
+                  </div>
                 </div>
-                <div className="text-slate-600 dark:text-slate-300 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>

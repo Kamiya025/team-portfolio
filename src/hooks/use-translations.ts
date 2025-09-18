@@ -1,15 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { locales } from "@/i18n"
 
 // Import messages
 import viMessages from "../../messages/vi.json"
 import enMessages from "../../messages/en.json"
-import { Locale } from "@/i18n"
+import { Locale, locales } from "../i18n"
 
 interface MessageValue {
-  [key: string]: string | MessageValue
+  [key: string]: string | MessageValue | string[]
 }
 
 const messages: Record<Locale, MessageValue> = {
@@ -41,10 +40,14 @@ export function useTranslations(namespace?: string) {
     if (!messageObj) return key
 
     const keys = key.split(".")
-    let result: string | MessageValue | undefined = messageObj
+    let result: string | MessageValue | string[] | undefined = messageObj
 
     for (const k of keys) {
-      if (typeof result === "object" && result !== null) {
+      if (
+        typeof result === "object" &&
+        result !== null &&
+        !Array.isArray(result)
+      ) {
         result = result[k]
       } else {
         result = undefined

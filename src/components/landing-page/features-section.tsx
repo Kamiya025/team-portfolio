@@ -1,28 +1,30 @@
 "use client"
 
 import { Icon } from "../icon"
-import { skills, featuresContent } from "@/data"
+import { skills } from "@/data"
 import type { Skill } from "@/models"
 import { Button, Section, Container, Heading } from "../ui"
+import { useTranslations } from "@/hooks/use-translations"
 
 export function FeaturesSection() {
+  const { t } = useTranslations("features")
   return (
     <Section id="services" variant="gradient" size="lg">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">
           <Heading level={2} variant="default" size="lg" className="mb-6">
-            {featuresContent.title}
+            {t("title")}
           </Heading>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {featuresContent.description}
+            {t("subtitle")}
           </p>
         </div>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-24">
           {skills.map((skill, index) => (
-            <SkillItem key={index} skill={skill} />
+            <SkillItem key={index} skill={skill} index={index} />
           ))}
         </div>
 
@@ -30,17 +32,16 @@ export function FeaturesSection() {
         <div className="mt-16 text-center">
           <div className="bg-gradient-palette-soft rounded-2xl p-8 liquid-glass">
             <Heading level={3} variant="default" size="md" className="mb-4">
-              {featuresContent.cta.title}
+              {t("cta.title")}
             </Heading>
-            <p className="text-muted-foreground mb-6">
-              {featuresContent.cta.description}
-            </p>
+            <p className="text-muted-foreground mb-6">{t("cta.description")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {featuresContent.cta.buttons.map((button, index) => (
-                <Button key={index} variant="glass" size="md">
-                  {button.text}
-                </Button>
-              ))}
+              <Button variant="glass" size="md">
+                {t("cta.buttons.portfolio")}
+              </Button>
+              <Button variant="glass" size="md">
+                {t("cta.buttons.contact")}
+              </Button>
             </div>
           </div>
         </div>
@@ -48,7 +49,17 @@ export function FeaturesSection() {
     </Section>
   )
 }
-const SkillItem = ({ skill }: { skill: Skill }) => {
+const SkillItem = ({ skill, index }: { skill: Skill; index: number }) => {
+  const { t } = useTranslations("features")
+  const skillKeys = [
+    "frontend",
+    "backend",
+    "mobile",
+    "design",
+    "devops",
+    "data",
+  ]
+  const skillKey = skillKeys[index]
   return (
     <div className="relative group hover:rotate-3 odd:hover:-rotate-3">
       <div
@@ -69,10 +80,10 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
       >
         <div className="pt-36">
           <h3 className="text-xl font-semibold text-card-foreground mb-4">
-            {skill.title}
+            {t(`${skillKey}.title`)}
           </h3>
           <p className="text-muted-foreground leading-relaxed">
-            {skill.description}
+            {t(`${skillKey}.description`)}
           </p>
         </div>
       </div>
