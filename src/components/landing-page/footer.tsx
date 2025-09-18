@@ -48,7 +48,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <div className="text-2xl font-bold text-primary">
-                {getLocalizedString(footerContent.companyName, locale)}
+                {getLocalizedString(footerContent.teamName, locale)}
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -131,7 +131,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-muted-foreground text-sm mb-4 md:mb-0">
               © {currentYear}{" "}
-              {getLocalizedString(footerContent.companyName, locale)}.{" "}
+              {getLocalizedString(footerContent.teamName, locale)}.{" "}
               {getLocalizedString(footerContent.copyright, locale)}
             </div>
             <div className="flex space-x-6 text-sm">

@@ -11,8 +11,8 @@ export interface SocialLink {
   icon: string
 }
 
-export interface FooterContent {
-  companyName: LocaleString
+export interface WebContent {
+  teamName: LocaleString
   description: LocaleString
   copyright: LocaleString
 }

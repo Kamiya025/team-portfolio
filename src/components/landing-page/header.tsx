@@ -2,11 +2,13 @@
 
 import { Link } from "@/i18n/navigation"
 import { useMobileMenu } from "@/providers/mobile-menu-provider"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
 import { Icon } from "../icon"
 import { LanguageSwitcher } from "../language-switcher"
 import { ThemeToggle } from "./theme-toggle"
+import { WebContent } from "@/data/config"
+import { getLocalizedString } from "@/utils"
 const navigation = [
   {
     name: "home",
@@ -36,6 +38,7 @@ const navigation = [
 ]
 
 export function Header() {
+  const locale = useLocale()
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } =
@@ -74,7 +77,7 @@ export function Header() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [navigation])
+  }, [])
 
   // Close mobile menu when clicking on navigation links
   const handleNavClick = () => {
@@ -137,7 +140,9 @@ export function Header() {
                   )
                 })}
               </nav>
-              <nav className="lg:hidden flex-1 justify-center items-center space-x-1 overflow-x-auto scrollbar-hide"></nav>
+              <nav className="lg:hidden flex-1 justify-center items-center space-x-1 overflow-x-auto scrollbar-hide">
+                {getLocalizedString(WebContent.teamName, locale)}
+              </nav>
               {/* Right side controls */}
               <div className="flex items-center space-x-2 sm:space-x-3">
                 {/* Language Switcher */}

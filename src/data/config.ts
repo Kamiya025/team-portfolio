@@ -23,8 +23,8 @@ export const socialLinks: SocialLink[] = [
   },
 ]
 
-export const footerContent: FooterContent = {
-  companyName: "TeamPortfolio",
+export const WebContent: FooterContent = {
+  teamName: "TeamPortfolio",
   description:
     "Chúng tôi là đội ngũ chuyên gia công nghệ với nhiều năm kinh nghiệm, cam kết mang đến những giải pháp công nghệ tối ưu cho doanh nghiệp.",
   copyright: "Tất cả quyền được bảo lưu.",

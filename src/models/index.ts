@@ -8,7 +8,11 @@ export type { Value, Technology, AboutContent } from "./about"
 export type { Skill, CTAButton, FeaturesContent } from "./features"
 
 // Footer models
-export type { FooterLink, SocialLink, FooterContent } from "./footer"
+export type {
+  FooterLink,
+  SocialLink,
+  WebContent as FooterContent,
+} from "./footer"
 
 // Projects models
 export type { Project, ProjectsContent } from "./projects"

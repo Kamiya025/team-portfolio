@@ -8,7 +8,7 @@ export { values, technologies, aboutContent } from "./about"
 export { skills, featuresContent } from "./features"
 
 // Footer data
-export { socialLinks, footerContent } from "./footer"
+export { socialLinks, WebContent as footerContent } from "./config"
 
 // Projects data
 export { featuredProjects, projectsContent } from "./projects"
