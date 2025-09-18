@@ -30,6 +30,11 @@ export function Header() {
         href: "#services",
         icon: "skills",
       },
+      {
+        name: "Dự án",
+        href: "#projects",
+        icon: "data",
+      },
     ],
     []
   )
