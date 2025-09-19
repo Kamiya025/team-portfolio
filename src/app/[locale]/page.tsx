@@ -6,6 +6,19 @@ import { HeroSection } from "@/components/landing-page/hero-section"
 import { ProjectsSection } from "@/components/landing-page/projects-section"
 import { TeamSection } from "@/components/landing-page/team-section"
 import { BackToTop } from "@/components/ui/back-to-top"
+import { WebContent } from "@/data/config"
+import { getLocalizedString } from "@/utils"
+import { Metadata } from "next"
+import { getLocale } from "next-intl/server"
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+
+  return {
+    title: getLocalizedString(WebContent.teamName, locale),
+    description: getLocalizedString(WebContent.description, locale),
+  }
+}
 
 export default function Home() {
   return (

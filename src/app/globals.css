@@ -63,6 +63,29 @@
   animation: fade-in 0.3s ease-out;
 }
 
+@keyframes switch-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(0) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animation-switch-right {
+  animation: switch-right 0.5s ease-out;
+}
+
+.switch-handle {
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
 /* Neumorphic Design System */
 .neumorphic-raised {
   background: #f0f0f3;

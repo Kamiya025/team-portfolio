@@ -235,7 +235,7 @@ const TeamStats = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {teamStats.map((stat, index) => {
             const statKeys = ["commitment", "methodology", "support", "quality"]
             const statKey = statKeys[index]

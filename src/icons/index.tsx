@@ -5,6 +5,7 @@ import ContactIcon from "./contact.svg"
 import DataIcon from "./data.svg"
 import DesignIcon from "./design.svg"
 import DevOpsIcon from "./devops.svg"
+import EnglishFlag from "./english-flag.svg"
 import FrontendIcon from "./frontend.svg"
 import HomeIcon from "./home.svg"
 import MenuCloseIcon from "./menu-close.svg"
@@ -20,6 +21,7 @@ export {
   DataIcon,
   DesignIcon,
   DevOpsIcon,
+  EnglishFlag,
   FrontendIcon,
   HomeIcon,
   MenuCloseIcon,
