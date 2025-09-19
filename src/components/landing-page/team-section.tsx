@@ -3,7 +3,7 @@
 import type { TeamMember } from "@/models"
 import { teamMembers, teamStats } from "@/data"
 import Image from "next/image"
-import { Badge } from "../ui"
+import { Badge, Particles, particleConfigs, FunFactCard } from "../ui"
 import { useLocale, useTranslations } from "next-intl"
 import { getLocalizedString } from "@/utils"
 
@@ -41,7 +41,6 @@ export function TeamSection() {
               key={index}
               member={member}
               animationDelay={index * 0.2}
-              t={t}
             />
           ))}
         </div>
@@ -53,16 +52,15 @@ export function TeamSection() {
 const TeamMember = ({
   member,
   animationDelay = 1,
-  t,
 }: {
   member: TeamMember
   animationDelay?: number
-  t: (key: string) => string
 }) => {
+  const t = useTranslations("team")
   const locale = useLocale()
   return (
     <div
-      className={`relative flex-1 flex flex-col group md:flex-row items-center gap-8 
+      className="relative flex-1 flex flex-col group md:flex-row items-center gap-8 
                 even:md:flex-row-reverse even:text-right
                 rounded-3xl p-6 md:p-8 border border-slate-200/10 dark:border-blue-600/30
                 bg-gradient-to-br from-slate-900/40 via-blue-900/20 to-cyan-900/30 
@@ -71,20 +69,19 @@ const TeamMember = ({
                 hover:shadow-blue-500/50 hover:ring-2 hover:ring-blue-400/50 
                 hover:scale-[1.02] hover:bg-gradient-to-br hover:from-slate-800/60 hover:via-blue-800/40 hover:to-cyan-800/50
                 transition-all duration-700 ease-out
-                sw-hologram group-hover:sw-holo-flicker`}
+                sw-hologram group-hover:sw-holo-flicker"
       style={{ animationDelay: `${animationDelay}s` }}
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-1000"></div>
       </div>
 
-      <div className="flex-shrink-0 relative z-10">
+      <div className="flex-shrink-0 relative">
+        <Particles particles={particleConfigs.avatar} />
         <div className="group relative">
-          {/* Outer glow ring */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           <div
             className="relative w-44 h-64 p-2 transform 
                       group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
@@ -102,17 +99,9 @@ const TeamMember = ({
               <Image
                 src={member.avatar}
                 alt={getLocalizedString(member.name, locale)}
-                width={192}
-                height={194}
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
+                fill
+                className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
               />
-            </div>
-
-            {/* Floating particles effect */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="absolute bottom-4 left-3 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200"></div>
-              <div className="absolute top-1/2 right-1 w-1 h-1 bg-purple-400 rounded-full animate-bounce opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-500"></div>
             </div>
           </div>
         </div>
@@ -132,56 +121,48 @@ const TeamMember = ({
                         md:self-start self-center sw-neon-border group-hover:sw-holo-flicker
                         transition-all duration-700 group-hover:scale-105 group-hover:shadow-blue-400/30"
             >
-              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent group-hover:from-blue-200 group-hover:via-cyan-200 group-hover:to-purple-200 transition-all duration-700">
+              <h3
+                className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900/55 dark:text-transparent 
+                    bg-gradient-to-r from-white via-blue-100 to-cyan-100
+                    bg-clip-text group-hover:from-blue-200 group-hover:via-cyan-200 group-hover:to-purple-200
+                    transition-all duration-700"
+              >
                 {getLocalizedString(member.name, locale)}
               </h3>
-              <p className="text-sm font-medium text-blue-300 group-hover:text-cyan-300 transition-colors duration-700">
+              <p
+                className="text-sm font-medium text-blue-600 group-hover:text-white 
+                dark:text-blue-300 dark:group-hover:text-cyan-300 
+                transition-colors duration-700"
+              >
                 {getLocalizedString(member.role, locale)}
               </p>
             </div>
 
             <div className="relative">
-              <div className="max-w-2xl text-slate-300 group-hover:text-slate-200 transition-colors duration-700 leading-relaxed">
+              <div
+                className="max-w-2xl text-slate-600 group-hover:text-slate-800 
+                     dark:text-gray-300 dark:group-hover:text-gray-200 
+                      transition-colors duration-700 leading-relaxed"
+              >
                 {getLocalizedString(member.description, locale)}
               </div>
 
               {/* Decorative line */}
-              <div className="absolute -bottom-2 left-0 w-16 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-300 group-even:md:left-auto group-even:md:right-0"></div>
+              <div
+                className="absolute -bottom-2 left-0 w-0 h-0.5 group-hover:w-24
+                      bg-gradient-to-r from-blue-500 to-cyan-500
+                      transition-all duration-1000 delay-800
+                      group-even:md:left-auto group-even:md:right-0"
+              />
             </div>
           </div>
 
           {/* Floating Fun Fact - Only show if funFact exists */}
-          {member.funFact && (
-            <div className="absolute -top-8 group-odd:right-4 group-even:left-4 text-left z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-500 group-hover:translate-y-0 translate-y-2">
-              <div
-                className="bg-gradient-to-r from-purple-500/90 via-pink-500/90 to-orange-500/90 
-                            backdrop-blur-xl border border-purple-300/50
-                            rounded-2xl p-4 shadow-2xl shadow-purple-500/30
-                            max-w-xs transform group-hover:scale-105 group-hover:rotate-1
-                            transition-all duration-700 ease-out
-                            animate-floatEnhanced"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
-                    <span className="text-white text-lg">💡</span>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-white mb-2 drop-shadow-lg">
-                      Fun Fact
-                    </h4>
-                    <p className="text-xs text-white/90 leading-relaxed drop-shadow-md">
-                      {getLocalizedString(member.funFact, locale)}
-                    </p>
-                  </div>
-                </div>
 
-                {/* Floating particles around the fun fact */}
-                <div className="absolute -top-2 -right-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60"></div>
-                <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce opacity-70"></div>
-                <div className="absolute top-1/2 -right-3 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-80"></div>
-              </div>
-            </div>
-          )}
+          <FunFactCard
+            funFact={getLocalizedString(member.funFact ?? "", locale)}
+            className="-top-12 group-even:left-4 group-odd:right-4"
+          />
 
           {/* Skills Section */}
           <div className="relative">
@@ -267,7 +248,6 @@ const TeamStats = () => {
                     {t(`stats.${statKey}`)}
                   </div>
                 </div>
-
                 {/* Decorative elements */}
                 <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping"></div>
                 <div className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 animate-pulse"></div>
