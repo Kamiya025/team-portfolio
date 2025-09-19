@@ -20,11 +20,13 @@ export function LanguageSwitcher() {
       {/* Neumorphic Toggle Switch */}
       <button
         onClick={handleToggle}
-        className={`relative w-20 h-10 rounded-4xl transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer bg-white/20 hover:bg-white/30`}
+        className={`relative w-20 h-10 rounded-4xl grid grid-cols-2 text-md font-semibold items-center transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer bg-white/20 hover:bg-white/30`}
         role="switch"
         aria-checked={locale === "en"}
         aria-label="Toggle language"
       >
+        <span>EN</span>
+        <span>VI</span>
         <NodeSwitch locale={locale} />
       </button>
     </div>
