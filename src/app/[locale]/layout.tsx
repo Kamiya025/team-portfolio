@@ -1,5 +1,4 @@
 import { routing } from "@/i18n/routing"
-import { MobileMenuProvider } from "@/providers/mobile-menu-provider"
 import { ThemeProvider } from "@/providers/theme-provider"
 import { hasLocale, NextIntlClientProvider } from "next-intl"
 import { Inter } from "next/font/google"
@@ -29,7 +28,7 @@ export default async function LocaleLayout({
       <body className={`${inter.className} dark:bg-gray-900 h-screen`}>
         <NextIntlClientProvider>
           <ThemeProvider defaultTheme="dark" storageKey="team-portfolio-theme">
-            <MobileMenuProvider>{children}</MobileMenuProvider>
+            {children}
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

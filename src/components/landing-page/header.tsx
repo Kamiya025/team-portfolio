@@ -1,7 +1,7 @@
 "use client"
 
 import { Link } from "@/i18n/navigation"
-import { useMobileMenu } from "@/providers/mobile-menu-provider"
+import { useMobileMenu } from "@/providers/theme-provider"
 import { useLocale, useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
 import { Icon } from "../icon"
@@ -112,8 +112,8 @@ export function Header() {
                         isActive
                           ? "nav-item-active bg-white/20 text-primary shadow-lg"
                           : scrolled
-                          ? "text-foreground hover:bg-white/10 hover:text-primary"
-                          : "text-white hover:bg-white/10 hover:text-white"
+                            ? "text-foreground hover:bg-white/10 hover:text-primary"
+                            : "text-white hover:bg-white/10 hover:text-white"
                       }`}
                     >
                       <div
