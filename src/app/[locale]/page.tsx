@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col items-center min-h-screen bg-background">
+    <div className="flex-1 flex flex-col items-center min-h-screen bg-dots">
       <Header />
       <main className="w-full">
         <HeroSection />

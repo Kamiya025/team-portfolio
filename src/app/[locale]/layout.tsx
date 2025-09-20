@@ -24,7 +24,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark">
       <body className={`${inter.className} dark:bg-gray-900 h-screen`}>
         <NextIntlClientProvider>
           <ThemeProvider defaultTheme="dark" storageKey="team-portfolio-theme">

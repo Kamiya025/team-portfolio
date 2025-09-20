@@ -12,7 +12,7 @@ export function FeaturesSection() {
     <Section id="services" variant="gradient" size="lg">
       <Container>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center">
           <Heading level={2} variant="default" size="lg" className="mb-6">
             {t("title")}
           </Heading>
@@ -22,7 +22,7 @@ export function FeaturesSection() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8">
           {skills.map((skill, index) => (
             <SkillItem key={index} skill={skill} index={index} />
           ))}

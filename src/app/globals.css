@@ -1996,3 +1996,31 @@ html {
   animation: bellShakeBounce 0.7s ease-in-out;
   animation-iteration-count: 1;
 }
+.bg-dots {
+  --bg-dots-size: 22px;
+  --bg-dots-radius: 1px;
+  /* Dùng foreground pha trong suốt để hợp với theme hiện tại */
+  --bg-dots-color: color-mix(in srgb, var(--foreground) 12%, transparent);
+  background-image: radial-gradient(
+    circle at center,
+    var(--bg-dots-color) var(--bg-dots-radius),
+    transparent calc(var(--bg-dots-radius) + 0.001px)
+  );
+  background-size: var(--bg-dots-size) var(--bg-dots-size);
+  background-repeat: repeat;
+}
+
+/* Dark mode tinh chỉnh độ tương phản một chút */
+.dark .bg-dots {
+  --bg-dots-color: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+/* Kích thước biến thể */
+.bg-dots-sm {
+  --bg-dots-size: 14px;
+  --bg-dots-radius: 0.75px;
+}
+.bg-dots-lg {
+  --bg-dots-size: 32px;
+  --bg-dots-radius: 1.25px;
+}
