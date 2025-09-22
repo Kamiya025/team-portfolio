@@ -1,29 +1,33 @@
 import { HTMLAttributes, forwardRef } from "react"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "glass" | "gradient" | "bordered"
+const cardVariants = cva("rounded-xl transition-all duration-300", {
+  variants: {
+    variant: {
+      default: "bg-card border border-border shadow-sm hover:shadow-md",
+      glass: "liquid-glass bg-white/10 backdrop-blur-sm border border-white/20",
+      gradient: "bg-gradient-palette-soft border border-palette-2/20 shadow-lg",
+      bordered:
+        "bg-card border-2 border-palette-1/50 hover:border-palette-1 shadow-lg hover:shadow-xl",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+})
+
+export interface CardProps
+  extends HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof cardVariants> {
   children: React.ReactNode
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", children, ...props }, ref) => {
-    const baseStyles = "rounded-xl transition-all duration-300"
-    
-    const variants = {
-      default: "bg-card border border-border shadow-sm hover:shadow-md",
-      glass: "liquid-glass bg-white/10 backdrop-blur-sm border border-white/20",
-      gradient: "bg-gradient-palette-soft border border-palette-2/20 shadow-lg",
-      bordered: "bg-card border-2 border-palette-1/50 hover:border-palette-1 shadow-lg hover:shadow-xl"
-    }
-
     return (
       <div
-        className={cn(
-          baseStyles,
-          variants[variant],
-          className
-        )}
+        className={cn(cardVariants({ variant }), className)}
         ref={ref}
         {...props}
       >
@@ -59,11 +63,7 @@ export interface CardContentProps extends HTMLAttributes<HTMLDivElement> {
 
 const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
   ({ className, children, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("p-6 pt-0", className)}
-      {...props}
-    >
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props}>
       {children}
     </div>
   )

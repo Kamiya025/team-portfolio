@@ -33,3 +33,7 @@ export { default as Switch } from "./switch"
 
 // LazyRender
 export { LazyRender } from "./lazy-render"
+
+// HoloBadge
+export { HoloBadge } from "./holo-badge"
+export type { HoloBadgeProps } from "./holo-badge"

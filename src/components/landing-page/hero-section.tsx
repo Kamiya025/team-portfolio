@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { listTeams, TEAM_PHOTO, heroStats } from "@/data/hero"
 import { Link } from "@/i18n/navigation"
 import { getLocalizedString } from "@/utils"
+import { HoloBadge } from "../ui"
 
 export function HeroSection() {
   // Team photo for preview
@@ -83,12 +84,7 @@ const Context = () => {
     <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
       <div className="space-y-12 group">
         {/* Badge */}
-        <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker animate-fade-in-up">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span className="text-sm font-semibold tracking-wide text-white/90">
-            {t("subtitle")}
-          </span>
-        </div>
+        <HoloBadge className="animate-fade-in-up">{t("subtitle")}</HoloBadge>
 
         {/* Heading (compact) */}
         <div className="flex flex-col items-center justify-center">
