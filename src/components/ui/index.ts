@@ -27,3 +27,9 @@ export { Particles, particleConfigs } from "./particles"
 
 // FunFactCard
 export { FunFactCard } from "./fun-fact-card"
+
+// Switch
+export { default as Switch } from "./switch"
+
+// LazyRender
+export { LazyRender } from "./lazy-render"

@@ -3,7 +3,15 @@ import { FeaturesSection } from "@/components/landing-page/features-section"
 import { Footer } from "@/components/landing-page/footer"
 import { Header } from "@/components/landing-page/header"
 import { HeroSection } from "@/components/landing-page/hero-section"
-import { ProjectsSection } from "@/components/landing-page/projects-section"
+import dynamic from "next/dynamic"
+import { LazyRender } from "@/components/ui/lazy-render"
+const ProjectsSection = dynamic(
+  () =>
+    import("@/components/landing-page/projects-section").then(
+      (m) => m.ProjectsSection
+    ),
+  { loading: () => <div className="h-40" />, ssr: true }
+)
 import { TeamSection } from "@/components/landing-page/team-section"
 import { BackToTop } from "@/components/ui/back-to-top"
 import { WebContent } from "@/data/config"
@@ -27,10 +35,18 @@ export default function Home() {
       <main className="w-full">
         <HeroSection />
         <div>
-          <TeamSection />
-          <AboutSection />
-          <FeaturesSection />
-          <ProjectsSection />
+          <LazyRender>
+            <TeamSection />
+          </LazyRender>
+          <LazyRender>
+            <AboutSection />
+          </LazyRender>
+          <LazyRender>
+            <FeaturesSection />
+          </LazyRender>
+          <LazyRender>
+            <ProjectsSection />
+          </LazyRender>
         </div>
       </main>
       <BackToTop />
