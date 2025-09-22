@@ -119,12 +119,18 @@ const Context = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
           style={{ animationDelay: "0.15s" }}
         >
-          <button className="glass-button gradient-border px-8 py-4 rounded-xl text-lg font-semibold text-white">
+          <Link
+            href="#projects"
+            className="glass-button gradient-border px-8 py-4 rounded-xl text-lg font-semibold text-white"
+          >
             {t("cta")}
-          </button>
-          <button className="px-8 py-4 rounded-xl text-lg font-semibold text-palette-1 bg-white hover:bg-palette-4 hover:text-white transition-colors duration-300 btn-neon">
+          </Link>
+          <Link
+            href={"#about"}
+            className="px-8 py-4 rounded-xl text-lg font-semibold text-palette-1 bg-white hover:bg-palette-4 hover:text-white transition-colors duration-300 btn-neon"
+          >
             {t("learnMore")}
-          </button>
+          </Link>
         </div>
         {/* Stats glass */}
       </div>

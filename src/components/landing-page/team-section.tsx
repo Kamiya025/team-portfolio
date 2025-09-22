@@ -80,10 +80,10 @@ const TeamMember = ({
 
       <div className="flex-shrink-0 relative">
         <Particles particles={particleConfigs.avatar} />
-        <div className="group relative">
+        <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           <div
-            className="relative w-44 h-64 p-2 transform 
+            className="relative w-44 h-64 p-2 transform
                       group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
                       group-odd:rounded-tr-[6rem] group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg
                       bg-gradient-to-br from-blue-600/80 via-cyan-500/80 to-purple-600/80 
@@ -92,9 +92,9 @@ const TeamMember = ({
                       sw-neon-border group-hover:shadow-blue-400/50"
           >
             <div
-              className="absolute bottom-0 left-0 z-10 w-full h-full transform origin-center p-2 overflow-hidden
-                        group-even:rounded-tl-[7rem] group-even:rounded-br-[7rem] group-even:rounded-tr-xl group-even:rounded-bl-xl
-                        group-odd:rounded-tr-[7rem] group-odd:rounded-bl-[7rem] group-odd:rounded-tl-xl group-odd:rounded-br-xl"
+              className="absolute inset-0 z-10 w-full h-full transform origin-center p-2 overflow-hidden
+                        group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
+                        group-odd:rounded-tr-[6rem] group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg"
             >
               <Image
                 src={member.avatar}
@@ -116,16 +116,18 @@ const TeamMember = ({
                         bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20
                         group-hover:from-blue-500/30 group-hover:via-cyan-500/30 group-hover:to-purple-500/30
                         border border-blue-400/60 group-hover:border-blue-300/80
-                        shadow-2xl mb-6 rotate-[-1deg] group-hover:rotate-0
-                        group-even:md:rotate-[1deg] group-even:md:group-hover:rotate-0 group-even:md:self-end
-                        md:self-start self-center sw-neon-border group-hover:sw-holo-flicker
-                        transition-all duration-700 group-hover:scale-105 group-hover:shadow-blue-400/30"
+                        shadow-2xl mb-6 rotate-[-1deg] text-center
+                        group-even:md:text-end group-odd:md:text-start
+                        group-hover:rotate-0 group-even:md:rotate-[1deg] group-even:md:group-hover:rotate-0 
+                        group-even:md:self-end group-odd:md:self-start transition-all duration-700
+                        self-center sw-neon-border group-hover:sw-holo-flicker
+                        group-hover:scale-105 group-hover:shadow-blue-400/30"
             >
               <h3
                 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900/55 dark:text-transparent 
                     bg-gradient-to-r from-white via-blue-100 to-cyan-100
-                    bg-clip-text group-hover:from-blue-200 group-hover:via-cyan-200 group-hover:to-purple-200
-                    transition-all duration-700"
+                    group-hover:from-blue-200 group-hover:via-cyan-200 group-hover:to-purple-200
+                    bg-clip-text transition-all duration-700"
               >
                 {getLocalizedString(member.name, locale)}
               </h3>
@@ -141,6 +143,7 @@ const TeamMember = ({
             <div className="relative">
               <div
                 className="max-w-2xl text-slate-600 group-hover:text-slate-800 
+                      text-start group-even:md:text-end group-odd:md:text-start
                      dark:text-gray-300 dark:group-hover:text-gray-200 
                       transition-colors duration-700 leading-relaxed"
               >
@@ -149,9 +152,9 @@ const TeamMember = ({
 
               {/* Decorative line */}
               <div
-                className="absolute -bottom-2 left-0 w-0 h-0.5 group-hover:w-24
+                className="absolute -bottom-2 left-0 w-5 h-0.5 group-hover:w-36
                       bg-gradient-to-r from-blue-500 to-cyan-500
-                      transition-all duration-1000 delay-800
+                      transition-transform transform-view group-hover:duration-initial delay-700
                       group-even:md:left-auto group-even:md:right-0"
               />
             </div>
@@ -166,7 +169,7 @@ const TeamMember = ({
 
           {/* Skills Section */}
           <div className="relative">
-            <h4 className="text-sm font-semibold text-blue-400 mb-4 flex items-center gap-2 group-odd:justify-start group-even:justify-end group-hover:text-cyan-400 transition-colors duration-700">
+            <h4 className="text-sm font-semibold text-blue-400 mb-4 flex items-center gap-2 group-odd:md:justify-start group-even:md:justify-end group-hover:text-cyan-400 transition-colors duration-700">
               <span className="w-2 h-2 bg-blue-400 rounded-full group-hover:bg-cyan-400 group-hover:scale-125 transition-all duration-700"></span>
               {t("skills")}
             </h4>

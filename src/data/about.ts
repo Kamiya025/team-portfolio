@@ -1,6 +1,6 @@
 import type { Value, Technology, AboutContent } from "@/models"
 
-export const values: Value[] = [
+export const coreValues: Value[] = [
   {
     icon: "lightning",
     title: {
@@ -57,19 +57,11 @@ export const technologies: Technology[] = [
 ]
 
 export const aboutContent: AboutContent = {
-  title: {
-    en: "About Us",
-    vi: "Về chúng tôi",
-  },
   description: {
     en: "We are a young, dynamic and passionate team of developers with technology, always ready to take on new challenges.",
     vi: "Chúng tôi là một đội ngũ developers trẻ trung, năng động và đầy đam mê với công nghệ, luôn sẵn sàng đón nhận những thử thách mới.",
   },
   story: {
-    title: {
-      en: "Our Story",
-      vi: "Câu chuyện của chúng tôi",
-    },
     paragraphs: [
       {
         en: "Founded in 2019, we started with 3 members who share a passion for technology and a desire to create meaningful products.",
@@ -86,10 +78,6 @@ export const aboutContent: AboutContent = {
     ],
   },
   mission: {
-    title: {
-      en: "Our Mission",
-      vi: "Sứ mệnh của chúng tôi",
-    },
     description: {
       en: "To create high-quality technology products that meet the real needs of users and contribute to the development of the Vietnamese tech community.",
       vi: "Tạo ra những sản phẩm công nghệ chất lượng cao, đáp ứng nhu cầu thực tế của người dùng và góp phần phát triển cộng đồng tech Việt Nam.",

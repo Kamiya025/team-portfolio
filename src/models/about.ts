@@ -12,14 +12,11 @@ export interface Technology {
 }
 
 export interface AboutContent {
-  title: LocaleString
   description: LocaleString
   story: {
-    title: LocaleString
     paragraphs: LocaleString[]
   }
   mission: {
-    title: LocaleString
     description: LocaleString
     points: LocaleString[]
   }

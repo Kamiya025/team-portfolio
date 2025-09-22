@@ -22,13 +22,13 @@ export function Particles({
 }
 
 // Predefined particle configurations for common use cases
-export const particleConfigs: Record<string, string[]> = {
+export const particleConfigs = {
   // For avatar hover effect
   avatar: [
-    "-top-1 group-even:-left-2 group-odd:-right-2 w-3 h-3 bg-cyan-400 animate-ping delay-100",
-    "bottom-2 group-even:-right-2 group-odd:-left-2 w-1 h-1 bg-cyan-400 animate-pulse delay-100",
-    "-bottom-1 group-even:left-1 group-odd:right-1 w-1.5 h-1.5 bg-blue-400 animate-ping delay-200",
-    "top-2/3 group-even:right-3 group-odd:left-3 w-2 h-2 bg-purple-400 animate-bounce delay-500",
+    "top-2 group-even:-left-1 group-odd:-right-1 w-3 h-3 bg-cyan-400 animate-ping delay-100",
+    "bottom-2 group-even:right-0 group-odd:left-0 w-1.5 h-1.5 bg-cyan-400 animate-pulse delay-100",
+    "-bottom-1 group-even:left-1 group-odd:right-1 w-1.5 h-1.5 bg-blue-400 animate-pulse delay-200",
+    "top-2/3 group-even:right-3 group-odd:left-3 w-2 h-2 bg-purple-400 animate-ping delay-500",
   ],
 
   // For fun fact particles

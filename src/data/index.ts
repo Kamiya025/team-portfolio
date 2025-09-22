@@ -2,7 +2,7 @@
 export { teamMembers, teamStats } from "./team"
 
 // About data
-export { values, technologies, aboutContent } from "./about"
+export { coreValues, technologies, aboutContent } from "./about"
 
 // Features data
 export { skills, featuresContent } from "./features"

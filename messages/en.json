@@ -15,7 +15,6 @@
   },
   "about": {
     "title": "About Us",
-    "description": "We are a young, dynamic and passionate team of developers with technology, always ready to take on new challenges.",
     "story": {
       "title": "Our Story",
       "paragraphs": [
@@ -25,32 +24,10 @@
       ]
     },
     "mission": {
-      "title": "Our Mission",
-      "description": "To create high-quality technology products that meet the real needs of users and contribute to the development of the Vietnamese tech community.",
-      "points": [
-        "Continuous innovation",
-        "Quality is the top priority",
-        "Continuous learning and development"
-      ]
+      "title": "Our Mission"
     },
     "values": {
-      "title": "Core Values",
-      "speed": {
-        "title": "Speed & Performance",
-        "description": "We always optimize code and processes to ensure products run fast and smoothly."
-      },
-      "quality": {
-        "title": "High Quality",
-        "description": "Every line of code is carefully reviewed and thoroughly tested before deployment."
-      },
-      "teamwork": {
-        "title": "Teamwork",
-        "description": "Collaboration and mutual support are the foundation of every successful project."
-      },
-      "innovation": {
-        "title": "Innovation",
-        "description": "Always seeking new solutions and creative approaches to every problem."
-      }
+      "title": "Core Values"
     },
     "technologies": {
       "title": "Technologies We Use"
