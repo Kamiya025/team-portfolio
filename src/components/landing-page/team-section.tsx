@@ -1,11 +1,11 @@
 "use client"
 
-import type { TeamMember } from "@/models"
 import { teamMembers, teamStats } from "@/data"
-import Image from "next/image"
-import { Badge, Particles, particleConfigs, FunFactCard } from "../ui"
-import { useLocale, useTranslations } from "next-intl"
+import type { TeamMember } from "@/models"
 import { getLocalizedString } from "@/utils"
+import { useLocale, useTranslations } from "next-intl"
+import Image from "next/image"
+import { Badge, FunFactCard, Particles, particleConfigs } from "../ui"
 
 export function TeamSection() {
   const t = useTranslations("team")
@@ -25,10 +25,10 @@ export function TeamSection() {
             <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
             {t("badge")}
           </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 group">
             {t("title")}
           </h2>
-          <div className="mx-auto w-40 md:w-52 rounded-full sw-saber-underline mb-6"></div>
+          <div className="mx-auto w-40 md:w-52 group-hover:scale-150 rounded-full sw-saber-underline mb-6"/>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
             {t("subtitle")}
           </p>
@@ -93,8 +93,8 @@ const TeamMember = ({
           >
             <div
               className="absolute inset-0 z-10 w-full h-full transform origin-center p-2 overflow-hidden
-                        group-even:rounded-tl-[6rem] group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
-                        group-odd:rounded-tr-[6rem] group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg"
+                      group-even:rounded-br-[6rem] group-even:rounded-tr-lg group-even:rounded-bl-lg
+                      group-odd:rounded-bl-[6rem] group-odd:rounded-tl-lg group-odd:rounded-br-lg"
             >
               <Image
                 src={member.avatar}
@@ -207,8 +207,8 @@ const TeamStats = () => {
       <div className="relative bg-gradient-to-br from-slate-900/60 via-blue-900/30 to-cyan-900/40 dark:from-slate-800/70 dark:via-blue-800/40 dark:to-cyan-800/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-blue-500/20 dark:border-blue-400/30 shadow-2xl hover:shadow-blue-500/20 transition-all duration-700">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="animate-bell-shake-continuous inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 border border-blue-400/30 mb-8">
-            <span className="w-3 h-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 animate-pulse"></span>
+         <div className="animate-bell-shake-continuous inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 border border-blue-400/30 mb-8">
+            <span className="w-3 h-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 animate-pulse"/>
             <span className="text-blue-300 font-semibold text-sm tracking-wide uppercase">
               {t("whyChooseUs.title")}
             </span>

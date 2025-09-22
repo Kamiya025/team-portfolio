@@ -1,13 +1,42 @@
 import { forwardRef, HTMLAttributes } from "react"
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-export interface HoloBadgeProps extends HTMLAttributes<HTMLDivElement> {
-  /** Kích thước badge ảnh hưởng padding và cỡ chữ */
-  size?: "sm" | "md" | "lg"
-  /** Hiển thị chấm động ở bên trái */
+const holoBadgeVariants = cva(
+  "inline-flex items-center gap-2 rounded-full glass sw-hologram sw-holo-flicker",
+  {
+    variants: {
+      size: {
+        sm: "px-3 py-1.5",
+        md: "px-4 py-2",
+        lg: "px-5 py-2.5",
+      },
+    },
+    defaultVariants: {
+      size: "md",
+    },
+  }
+)
+
+const holoBadgeTextVariants = cva("font-semibold tracking-wide text-white/90", {
+  variants: {
+    size: {
+      sm: "text-xs sm:text-sm",
+      md: "text-xs sm:text-sm",
+      lg: "text-sm sm:text-base",
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+})
+
+export interface HoloBadgeProps
+  extends HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof holoBadgeVariants> {
   withDot?: boolean
-  /** Lớp màu nền cho chấm động */
   dotColorClassName?: string
+  color?: "default"|"emerald"|"blue"|"cyan"|"purple"|"pink"|"amber"|"red"|"gradient"
 }
 
 export const HoloBadge = forwardRef<HTMLDivElement, HoloBadgeProps>(
@@ -17,46 +46,41 @@ export const HoloBadge = forwardRef<HTMLDivElement, HoloBadgeProps>(
       children,
       size = "md",
       withDot = true,
-      dotColorClassName = "bg-emerald-400",
+      dotColorClassName,
+      color = "default",
       ...props
-    },
-    ref
+    }, ref
   ) => {
-    const sizeContainer = {
-      sm: "px-3 py-1.5",
-      md: "px-4 py-2",
-      lg: "px-5 py-2.5",
+    const colorToDotClass: Record<NonNullable<HoloBadgeProps["color"]>, string> = {
+      default: "bg-emerald-400",
+      emerald: "bg-emerald-400",
+      blue: "bg-blue-400",
+      cyan: "bg-cyan-400",
+      purple: "bg-purple-400",
+      pink: "bg-pink-400",
+      amber: "bg-amber-400",
+      red: "bg-red-400",
+      gradient: "bg-gradient-to-r from-blue-400 to-cyan-400",
     }
 
-    const sizeText = {
-      sm: "text-xs sm:text-sm",
-      md: "text-xs sm:text-sm",
-      lg: "text-sm sm:text-base",
-    }
+    const resolvedDotColorClassName = dotColorClassName ?? colorToDotClass[color]
 
     return (
       <div
         ref={ref}
-        className={cn(
-          "inline-flex items-center gap-2 rounded-full glass sw-hologram sw-holo-flicker",
-          sizeContainer[size],
-          className
-        )}
+        className={cn(holoBadgeVariants({ size }), className)}
         {...props}
       >
         {withDot && (
           <span
             className={cn(
               "w-2 h-2 rounded-full animate-pulse",
-              dotColorClassName
+              resolvedDotColorClassName
             )}
           />
         )}
         <span
-          className={cn(
-            "font-semibold tracking-wide text-white/90",
-            sizeText[size]
-          )}
+          className={cn(holoBadgeTextVariants({ size }))}
         >
           {children}
         </span>

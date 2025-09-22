@@ -1,6 +1,8 @@
 // Navigation icons
 import AboutIcon from "./about.svg"
 import BackendIcon from "./backend.svg"
+import BarIcon from "./bar.svg"
+import CloseIcon from "./close.svg"
 import ContactIcon from "./contact.svg"
 import DataIcon from "./data.svg"
 import DesignIcon from "./design.svg"
@@ -17,6 +19,8 @@ import VietnamFlagIcon from "./vietnam-flag.svg"
 export {
   AboutIcon,
   BackendIcon,
+  BarIcon,
+  CloseIcon,
   ContactIcon,
   DataIcon,
   DesignIcon,

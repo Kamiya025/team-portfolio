@@ -1,13 +1,12 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { featuredProjects } from "@/data"
 import { Project } from "@/models"
-import { useState } from "react"
-import { useLocale, useTranslations } from "next-intl"
 import { getLocalizedString } from "@/utils"
+import { useLocale, useTranslations } from "next-intl"
+import { useState } from "react"
 
 // Project Status Badge Component
 const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {

@@ -11,7 +11,7 @@ export function AboutSection() {
   const locale = useLocale()
   const aboutDescription = aboutContent.description
   return (
-    <Section id="about" variant="muted" size="lg">
+    <Section id="about" variant="muted" size="xl">
       <Container>
         {/* Section Header */}
         <div className="text-center mb-16">

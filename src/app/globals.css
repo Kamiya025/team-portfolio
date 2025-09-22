@@ -439,7 +439,7 @@ body {
 }
 
 /* Glass Morphism Buttons */
-.glass-button {
+@utility glass-button {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -448,10 +448,15 @@ body {
   transition: all 0.3s ease;
 }
 
-.glass-button:hover {
+@utility glass-button-hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.glass-button:hover {
+  background: linear-gradient(90deg, rgba(59,130,246,0.25) 0%, rgba(56,189,248,0.25) 100%);
+  
 }
 
 /* Liquid Glass Navigation */
@@ -1852,11 +1857,11 @@ html {
 }
 
 /* ===== Back to Top Button ===== */
-.back-to-top-enter {
+@utility back-to-top-enter {
   animation: backToTopEnter 0.3s ease-out;
 }
 
-.back-to-top-exit {
+@utility back-to-top-exit {
   animation: backToTopExit 0.3s ease-in;
 }
 
@@ -1895,7 +1900,7 @@ html {
   }
 }
 
-.back-to-top-pulse {
+@utility back-to-top-pulse {
   animation: backToTopPulse 2s infinite;
 }
 
@@ -1934,31 +1939,31 @@ html {
   }
 }
 
-.animate-bell-shake {
+@utility animate-bell-shake {
   animation: bellShake 0.6s ease-in-out;
   animation-iteration-count: 1;
 }
 
 /* Bell shake with delay for staggered effect */
-.animate-bell-shake-delayed {
+@utility animate-bell-shake-delayed {
   animation: bellShake 0.6s ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
 
 /* Continuous bell shake for attention */
-.animate-bell-shake-continuous {
+@utility animate-bell-shake-continuous {
   animation: bellShake 0.6s ease-in-out infinite;
   animation-duration: 2s;
 }
 
 /* Bell shake with different intensities */
-.animate-bell-shake-soft {
+@utility animate-bell-shake-soft {
   animation: bellShake 0.4s ease-in-out;
   animation-iteration-count: 1;
 }
 
-.animate-bell-shake-strong {
+@utility animate-bell-shake-strong {
   animation: bellShake 0.8s ease-in-out;
   animation-iteration-count: 2;
 }
@@ -1998,11 +2003,11 @@ html {
   }
 }
 
-.animate-bell-shake-bounce {
+@utility animate-bell-shake-bounce {
   animation: bellShakeBounce 0.7s ease-in-out;
   animation-iteration-count: 1;
 }
-.bg-dots {
+@utility bg-dots {
   --bg-dots-size: 22px;
   --bg-dots-radius: 1px;
   /* Dùng foreground pha trong suốt để hợp với theme hiện tại */
@@ -2022,11 +2027,11 @@ html {
 }
 
 /* Kích thước biến thể */
-.bg-dots-sm {
+@utility bg-dots-sm {
   --bg-dots-size: 14px;
   --bg-dots-radius: 0.75px;
 }
-.bg-dots-lg {
+@utility bg-dots-lg {
   --bg-dots-size: 32px;
   --bg-dots-radius: 1.25px;
 }

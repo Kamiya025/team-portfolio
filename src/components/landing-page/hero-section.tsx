@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { useLocale, useTranslations } from "next-intl"
-import { listTeams, TEAM_PHOTO, heroStats } from "@/data/hero"
+import { heroStats, listTeams, TEAM_PHOTO } from "@/data/hero"
 import { Link } from "@/i18n/navigation"
 import { getLocalizedString } from "@/utils"
+import { useLocale, useTranslations } from "next-intl"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 import { HoloBadge } from "../ui"
 
 export function HeroSection() {
@@ -73,6 +73,7 @@ const Context = () => {
   const texts = listTeams
   const t = useTranslations("hero")
   const locale = useLocale()
+  const maxWidthText = texts.reduce((max, text) => Math.max(max, getLocalizedString(text.name, locale).length), 0)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % texts.length)
@@ -84,7 +85,9 @@ const Context = () => {
     <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
       <div className="space-y-12 group">
         {/* Badge */}
-        <HoloBadge className="animate-fade-in-up">{t("subtitle")}</HoloBadge>
+       <HoloBadge color="default">
+          {t("subtitle")}
+        </HoloBadge>
 
         {/* Heading (compact) */}
         <div className="flex flex-col items-center justify-center">
@@ -94,10 +97,16 @@ const Context = () => {
           >
             <div className="flex flex-col lg:flex-row items-center-safe gap-5">
               <span>{t("title")}</span>
-              <div className="lg:min-w-sm  flex-1 px-4 py-2 rounded-xl backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md group-hover:rotate-3 group-hover:scale-3d">
-                <span className="gradient-text uppercase font-extrabold">
-                  {getLocalizedString(texts[currentText].name, locale)}
-                </span>
+              <div className="lg:min-w-sm flex-1 flex flex-col px-5 py-3 rounded-2xl 
+                    backdrop-blur-sm ring-4 ring-white/10 drop-shadow-md 
+                    group-hover:animate-bell-shake-continuous group-hover:rotate-3 group-hover:scale-3d"
+                style={{ width: `${maxWidthText * 50}px` }}
+              >
+                {texts.map((text, index) =>
+                  <span key={index}
+                    className={`gradient-text uppercase font-extrabold ${index === currentText ? "" : "hidden"}`}>
+                  {getLocalizedString(text.name, locale)}
+                </span>)}
               </div>
             </div>
           </h1>

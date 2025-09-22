@@ -3,15 +3,9 @@ import { FeaturesSection } from "@/components/landing-page/features-section"
 import { Footer } from "@/components/landing-page/footer"
 import { Header } from "@/components/landing-page/header"
 import { HeroSection } from "@/components/landing-page/hero-section"
-import dynamic from "next/dynamic"
 import { LazyRender } from "@/components/ui/lazy-render"
-const ProjectsSection = dynamic(
-  () =>
-    import("@/components/landing-page/projects-section").then(
-      (m) => m.ProjectsSection
-    ),
-  { loading: () => <div className="h-40" />, ssr: true }
-)
+
+import { ProjectsSection } from "@/components/landing-page/projects-section"
 import { TeamSection } from "@/components/landing-page/team-section"
 import { BackToTop } from "@/components/ui/back-to-top"
 import { WebContent } from "@/data/config"
@@ -30,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col items-center min-h-screen bg-dots">
+    <div className="flex-1 flex flex-col items-center min-h-screen bg-dots bg-dots-sm">
       <Header />
       <main className="w-full">
         <HeroSection />
