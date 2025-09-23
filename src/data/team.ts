@@ -1,212 +1,240 @@
-import type { TeamMember, TeamStat } from "@/models"
+import type { TeamMember, TeamStat } from '@/models'
 
 export const teamMembers: TeamMember[] = [
   {
-    name: {
-      en: "Nguyễn Văn A",
-      vi: "Nguyễn Văn A",
-    },
-    role: {
-      en: "Tech Lead & Full-stack Developer",
-      vi: "Tech Lead & Full-stack Developer",
-    },
-    avatar: "/user.png",
-    skills: ["React", "Node.js", "TypeScript", "AWS"],
+    name: 'Lê Thanh Bình',
+    role: 'Solutions Architect',
+    avatar: '/users/male2.png',
+    skills: [
+      'Solution Architecture',
+      'System Design',
+      'Cloud',
+      'Microservices',
+      'DevOps',
+    ],
     description: {
-      en: "5+ years of experience, specializing in system architecture and team mentoring.",
-      vi: "5+ năm kinh nghiệm, chuyên về kiến trúc hệ thống và mentoring team.",
+      en: 'Designing scalable, secure, and high-performance system architectures.',
+      vi: 'Thiết kế kiến trúc hệ thống mở rộng, bảo mật và hiệu suất cao.',
     },
     funFact: {
-      en: "🎯 Can debug any code while drinking 5 cups of coffee per day!",
-      vi: "🎯 Có thể debug mọi đoạn code trong khi uống 5 cốc cà phê mỗi ngày!",
+      en: '🧩 Can visualize system diagrams faster than drawing doodles!',
+      vi: '🧩 Vẽ sơ đồ hệ thống còn nhanh hơn cả vẽ doodle!',
     },
   },
   {
-    name: {
-      en: "Kamiya",
-      vi: "Kamiya",
-    },
-    role: {
-      en: "Frontend Developer",
-      vi: "Frontend Developer",
-    },
-    avatar: "/user.png",
-    skills: ["React", "Next.js", "React Native", "TailwindCSS"],
+    name: 'TuânPH',
+    role: 'Product Owner',
+    avatar: '/users/male.png',
+    skills: [
+      'Product Management',
+      'Scrum',
+      'Stakeholder Communication',
+      'Roadmapping',
+    ],
     description: {
-      en: "UI/UX expert with a passion for creating beautiful interfaces and amazing user experiences.",
-      vi: "Chuyên gia UI/UX với đam mê tạo ra giao diện đẹp và trải nghiệm người dùng tuyệt vời.",
+      en: 'Bridging business needs and development team, ensuring product vision and value delivery.',
+      vi: 'Kết nối nhu cầu kinh doanh và đội phát triển, đảm bảo tầm nhìn sản phẩm và giá trị mang lại.',
     },
     funFact: {
-      en: "🎨 Once redesigned a button 47 times before being satisfied!",
-      vi: "🎨 Đã từng thiết kế lại một button 47 lần trước khi hài lòng!",
+      en: '📝 Can turn a napkin sketch into a full product backlog!',
+      vi: '📝 Có thể biến bản vẽ trên khăn giấy thành backlog sản phẩm hoàn chỉnh!',
     },
   },
   {
-    name: {
-      en: "Lê Văn C",
-      vi: "Lê Văn C",
-    },
+    name: 'LinhDD',
     role: {
-      en: "Backend Developer",
-      vi: "Backend Developer",
+      en: 'Project Manager',
+      vi: 'Quản lý dự án',
     },
-    avatar: "/user.png",
-    skills: ["Python", "Django", "PostgreSQL", "Docker"],
+    avatar: '/users/female2.png',
+    skills: ['Project Management', 'Scrum', 'Agile', 'Communication'],
     description: {
-      en: "Expert in backend architecture and database optimization.",
-      vi: "Expert về backend architecture và database optimization.",
+      en: 'Expert in project planning, team coordination, and ensuring timely delivery.',
+      vi: 'Chuyên gia lập kế hoạch dự án, điều phối nhóm và đảm bảo tiến độ giao hàng đúng hạn.',
     },
     funFact: {
-      en: "🐍 Writes Python code in his sleep and it actually works!",
-      vi: "🐍 Viết code Python trong giấc ngủ và nó thực sự chạy được!",
+      en: '🗂️ Can organize a team meeting in under 2 minutes, even before the coffee is ready!',
+      vi: '🗂️ Có thể tổ chức họp nhóm trong chưa đầy 2 phút, thậm chí trước khi cà phê pha xong!',
     },
   },
   {
-    name: {
-      en: "Trần D",
-      vi: "Trần D",
-    },
+    name: 'Vương Mạnh Hùng',
     role: {
-      en: "Mobile Developer",
-      vi: "Mobile Developer",
+      en: 'Tech Lead & Full-stack Developer',
+      vi: 'Tech Lead & Full-stack Developer',
     },
-    avatar: "/user.png",
-    skills: ["React Native", "Flutter", "iOS", "Android"],
+    avatar: '/users/user.png',
+    skills: [
+      'React',
+      'Node.js',
+      'TypeScript',
+      'AWS',
+      'Docker',
+      'Kubernetes',
+      'CI/CD',
+      'Python',
+    ],
     description: {
-      en: "Specializing in cross-platform mobile application development with high performance.",
-      vi: "Chuyên phát triển ứng dụng di động đa nền tảng với hiệu suất cao.",
-    },
-    funFact: {
-      en: "📱 Has 23 different phones for testing - and counting!",
-      vi: "📱 Có 23 chiếc điện thoại khác nhau để test - và vẫn đang tăng!",
+      en: '5+ years of experience, specializing in system architecture and team mentoring.',
+      vi: '5+ năm kinh nghiệm, chuyên về kiến trúc hệ thống và mentoring team.',
     },
   },
   {
-    name: {
-      en: "Hoàng Văn E",
-      vi: "Hoàng Văn E",
-    },
-    role: {
-      en: "DevOps Engineer",
-      vi: "DevOps Engineer",
-    },
-    avatar: "/user.png",
-    skills: ["AWS", "Kubernetes", "CI/CD", "Terraform"],
+    name: 'Quang Hưng',
+    role: 'Frontend Developer & Mobile Developer',
+    avatar: '/users/kamiya.png',
+    skills: [
+      'React',
+      'Next.js',
+      'React Native',
+      'TailwindCSS',
+      'JavaScript',
+      'TypeScript',
+    ],
     description: {
-      en: "Ensuring systems run stably and scalably.",
-      vi: "Đảm bảo hệ thống hoạt động ổn định và scalable.",
+      en: ' Curious and experimental; write scalable FE logic to drive sustainable growth.',
+      vi: 'Tò mò và ưa thử nghiệm; viết logic FE dễ mở rộng để sản phẩm tăng trưởng bền vững.',
     },
     funFact: {
-      en: "☁️ Can deploy to production with just one command... and a prayer!",
-      vi: "☁️ Có thể deploy lên production chỉ với một lệnh... và một lời cầu nguyện!",
+      en: '"Work smart, not hard" – and sometimes, "not working" at all!',
+      vi: '"Làm việc thông minh, không làm việc chăm chỉ" – và đôi khi, "không làm việc" luôn.!',
     },
   },
   {
-    name: {
-      en: "Võ Thị F",
-      vi: "Võ Thị F",
-    },
-    role: {
-      en: "UI/UX Designer",
-      vi: "UI/UX Designer",
-    },
-    avatar: "/user.png",
-    skills: ["Figma", "Adobe XD", "Sketch", "Prototyping"],
+    name: 'Trịnh Đức Thành',
+    role: 'Backend Developer',
+    avatar: '/users/user.png',
+    skills: [
+      'Javascript',
+      'Typescript',
+      'Python',
+      'Java',
+      'NodeJS',
+      'VueJS',
+      'Spring boot',
+      'Django',
+      'FastAPI',
+      'Microservice',
+      'MySQL',
+      'PostgreSQL',
+      'MongoDB',
+    ],
     description: {
-      en: "Creating innovative and user-friendly designs.",
-      vi: "Tạo ra những thiết kế sáng tạo và user-friendly.",
+      en: 'Introverted and weeaboo :))',
+      vi: 'Wibu hướng nội :))',
     },
     funFact: {
-      en: "✨ Turns coffee stains into beautiful design inspiration!",
-      vi: "✨ Biến vết cà phê đổ thành nguồn cảm hứng thiết kế đẹp!",
+      en: 'Introverted and weeaboo :))',
+      vi: 'Wibu hướng nội :))',
     },
   },
   {
-    name: {
-      en: "Đặng Văn G",
-      vi: "Đặng Văn G",
-    },
-    role: {
-      en: "QA Engineer",
-      vi: "QA Engineer",
-    },
-    avatar: "/user.png",
-    skills: ["Testing", "Automation", "Selenium", "Jest"],
+    name: 'Giang Nguyễn',
+    role: 'Frontend Developer',
+    avatar: '/users/user.png',
+    skills: [
+      'React',
+      'Next.js',
+      'React Native',
+      'TailwindCSS',
+      'JavaScript',
+      'TypeScript',
+    ],
     description: {
-      en: "Ensuring product quality through comprehensive testing.",
-      vi: "Đảm bảo chất lượng sản phẩm thông qua testing toàn diện.",
+      en: 'Frontend developer with 2 years of experience, passionate about building modern, user-friendly web interfaces and always eager to learn new technologies.',
+      vi: 'Frontend developer với 2 năm kinh nghiệm, đam mê xây dựng giao diện web hiện đại, thân thiện với người dùng và luôn sẵn sàng học hỏi công nghệ mới.',
+    },
+  },
+  {
+    name: 'NamNH',
+    role: 'DevOps Engineer',
+    avatar: '/users/user.png',
+    skills: ['AWS', 'Kubernetes', 'CI/CD', 'Terraform', 'Azure', 'GCP'],
+    description: {
+      en: 'Ensuring systems run stably and scalably.',
+      vi: 'Đảm bảo hệ thống hoạt động ổn định và scalable.',
+    },
+    funFact: {
+      en: '☁️ Can deploy to production with just one command... and a prayer!',
+      vi: '☁️ Có thể deploy lên production chỉ với một lệnh... và một lời cầu nguyện!',
+    },
+  },
+  {
+    name: 'Thái Quỳnh',
+    role: 'UI/UX Designer',
+    avatar: '/users/male.png',
+    skills: ['Figma', 'Adobe XD', 'Sketch', 'Prototyping'],
+    description: {
+      en: 'Creating innovative and user-friendly designs.',
+      vi: 'Tạo ra những thiết kế sáng tạo và user-friendly.',
+    },
+    funFact: {
+      en: '✨ Turns coffee stains into beautiful design inspiration!',
+      vi: '✨ Biến vết cà phê đổ thành nguồn cảm hứng thiết kế đẹp!',
+    },
+  },
+
+  {
+    name: 'Trâm',
+    role: 'Test Lead & QA Engineer',
+    avatar: '/users/female2.png',
+    skills: ['Testing', 'Automation', 'Selenium', 'Jest', 'Playwright'],
+    description: {
+      en: 'Ensuring product quality through comprehensive testing.',
+      vi: 'Đảm bảo chất lượng sản phẩm thông qua testing toàn diện.',
     },
     // No funFact - this member doesn't have a fun fact
   },
   {
-    name: {
-      en: "Bùi Thị H",
-      vi: "Bùi Thị H",
-    },
-    role: {
-      en: "Data Engineer",
-      vi: "Data Engineer",
-    },
-    avatar: "/user.png",
-    skills: ["Python", "SQL", "Apache Spark", "Machine Learning"],
+    name: 'Thu Hoàng',
+    role: 'QA Engineer',
+    avatar: '/users/female.png',
+    skills: ['Testing', 'Automation', 'Selenium', 'Jest', 'Playwright'],
     description: {
-      en: "Processing and analyzing data to provide valuable insights.",
-      vi: "Xử lý và phân tích dữ liệu để đưa ra insights có giá trị.",
+      en: 'Ensuring product quality through comprehensive testing.',
+      vi: 'Đảm bảo chất lượng sản phẩm thông qua testing toàn diện.',
     },
-    funFact: {
-      en: "📊 Can predict the weather by analyzing coffee consumption patterns!",
-      vi: "📊 Có thể dự đoán thời tiết bằng cách phân tích mẫu tiêu thụ cà phê!",
-    },
+    // No funFact - this member doesn't have a fun fact
   },
 ]
 
 export const teamStats: TeamStat[] = [
   {
-    value: {
-      en: "100%",
-      vi: "100%",
-    },
+    value: '100%',
+
     label: {
-      en: "Commitment",
-      vi: "Cam kết",
+      en: 'Commitment',
+      vi: 'Cam kết',
     },
     gradient:
-      "from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400",
+      'from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400',
   },
   {
-    value: {
-      en: "Agile",
-      vi: "Agile",
-    },
+    value: 'Agile',
+
     label: {
-      en: "Methodology",
-      vi: "Phương pháp",
+      en: 'Methodology',
+      vi: 'Phương pháp',
     },
     gradient:
-      "from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400",
+      'from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400',
   },
   {
-    value: {
-      en: "24/7",
-      vi: "24/7",
-    },
+    value: '24/7',
     label: {
-      en: "Support",
-      vi: "Hỗ trợ",
+      en: 'Support',
+      vi: 'Hỗ trợ',
     },
     gradient:
-      "from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400",
+      'from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400',
   },
   {
-    value: {
-      en: "5★",
-      vi: "5★",
-    },
+    value: '5★',
     label: {
-      en: "Quality",
-      vi: "Chất lượng",
+      en: 'Quality',
+      vi: 'Chất lượng',
     },
     gradient:
-      "from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400",
+      'from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-orange-400',
   },
 ]

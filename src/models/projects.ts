@@ -1,14 +1,14 @@
-import { LocaleString } from "./type"
+import { LocaleString } from './type'
 
 export interface Project {
   id: string
   title: LocaleString
   description: LocaleString
   shortDescription: LocaleString
-  image: string
+  image?: string
   technologies: string[]
-  category: "web" | "mobile" | "desktop" | "ai" | "other"
-  status: "completed" | "in-progress" | "upcoming"
+  category: 'web' | 'mobile' | 'desktop' | 'ai' | 'other'
+  status: 'completed' | 'in-progress' | 'upcoming'
   featured: boolean
   liveUrl?: string
   githubUrl?: string

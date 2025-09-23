@@ -1,40 +1,43 @@
-"use client"
+'use client'
 
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
-import { featuredProjects } from "@/data"
-import { Project } from "@/models"
-import { getLocalizedString } from "@/utils"
-import { useLocale, useTranslations } from "next-intl"
-import { useState } from "react"
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
+import { featuredProjects } from '@/data'
+import { Link } from '@/i18n/navigation'
+import { AiIcon, GameIcon, GlobalIcon, PhoneIcon } from '@/icons'
+import { Project } from '@/models'
+import { getLocalizedString } from '@/utils'
+import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
+import { useState } from 'react'
 
 // Project Status Badge Component
-const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {
-  const t = useTranslations("projects")
+const ProjectStatusBadge = ({ status }: { status: Project['status'] }) => {
+  const t = useTranslations('projects')
 
-  const getStatusColor = (status: Project["status"]) => {
+  const getStatusColor = (status: Project['status']) => {
     switch (status) {
-      case "completed":
-        return "bg-green-500/20 text-green-400 border-green-500/30"
-      case "in-progress":
-        return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30"
-      case "upcoming":
-        return "bg-blue-500/20 text-blue-400 border-blue-500/30"
+      case 'completed':
+        return 'bg-green-500/20 text-green-400 border-green-500/30'
+      case 'in-progress':
+        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+      case 'upcoming':
+        return 'bg-blue-500/20 text-blue-400 border-blue-500/30'
       default:
-        return "bg-gray-500/20 text-gray-400 border-gray-500/30"
+        return 'bg-gray-500/20 text-gray-400 border-gray-500/30'
     }
   }
 
-  const getStatusText = (status: Project["status"]) => {
+  const getStatusText = (status: Project['status']) => {
     switch (status) {
-      case "completed":
-        return t("status.completed")
-      case "in-progress":
-        return t("status.in-progress")
-      case "upcoming":
-        return t("status.upcoming")
+      case 'completed':
+        return t('status.completed')
+      case 'in-progress':
+        return t('status.in-progress')
+      case 'upcoming':
+        return t('status.upcoming')
       default:
-        return t("status.unknown")
+        return t('status.unknown')
     }
   }
 
@@ -44,27 +47,36 @@ const ProjectStatusBadge = ({ status }: { status: Project["status"] }) => {
     </Badge>
   )
 }
-
-// Category Icon Component
-const CategoryIcon = ({ category }: { category: Project["category"] }) => {
-  const getIcon = (category: Project["category"]) => {
-    switch (category) {
-      case "web":
-        return "🌐"
-      case "mobile":
-        return "📱"
-      case "ai":
-        return "🤖"
-      case "other":
-        return "🎮"
-      default:
-        return "🌐"
-    }
+const getIcon = (category: Project['category'], className?: string) => {
+  switch (category) {
+    case 'web':
+      return <GlobalIcon className={className} />
+    case 'mobile':
+      return <PhoneIcon className={className} />
+    case 'ai':
+      return <AiIcon className={className} />
+    case 'other':
+      return <GameIcon className={className} />
+    default:
+      return <GlobalIcon className={className} />
   }
-
+}
+// Category Icon Component
+const CategoryIcon = ({
+  image,
+  category,
+}: {
+  image?: string
+  category: Project['category']
+}) => {
+  const Icon = getIcon(category, 'size-8 text-primary')
   return (
-    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-2xl">
-      {getIcon(category)}
+    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-2xl aspect-square overflow-hidden">
+      {image ? (
+        <Image src={image} alt={category} width={40} height={40} />
+      ) : (
+        Icon
+      )}
     </div>
   )
 }
@@ -80,21 +92,21 @@ const GitHubButton = ({
   if (!githubUrl) return null
 
   return (
-    <a
+    <Link
       href={githubUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Open project on GitHub"
       className={`absolute bottom-4 right-4 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm shadow-lg flex items-center justify-center transition-all duration-500 ${
         isVisible
-          ? "opacity-100 scale-100 rotate-0"
-          : "opacity-0 scale-50 rotate-45"
+          ? 'opacity-100 scale-100 rotate-0'
+          : 'opacity-0 scale-50 rotate-45'
       }`}
     >
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
       </svg>
-    </a>
+    </Link>
   )
 }
 
@@ -121,7 +133,7 @@ const TechnologyTags = ({ technologies }: { technologies: string[] }) => {
 
 // Project Stats Component
 const ProjectStats = ({ duration, teamSize, client }: Project) => {
-  const t = useTranslations("projects")
+  const t = useTranslations('projects')
   const locale = useLocale()
   return (
     <div className="px-6 pb-6">
@@ -141,7 +153,7 @@ const ProjectStats = ({ duration, teamSize, client }: Project) => {
             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
               <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
             </svg>
-            {t("teamSize", { count: teamSize })}
+            {t('teamSize', { count: teamSize })}
           </span>
         </div>
         {client && <span className="text-blue-400 font-medium">{client}</span>}
@@ -158,20 +170,25 @@ const ProjectImageHeader = ({
   project: Project
   isHovered: boolean
 }) => {
+  const locale = useLocale()
   return (
     <div className="relative h-48 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 flex items-center justify-center">
         <div className="text-8xl opacity-40 group-hover:opacity-60 transition-opacity duration-500">
-          {project.category === "web" && "🌐"}
-          {project.category === "mobile" && "📱"}
-          {project.category === "ai" && "🤖"}
-          {project.category === "other" && "🎮"}
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={getLocalizedString(project.title, locale)}
+              width={100}
+              height={100}
+            />
+          ) : (
+            getIcon(project.category, 'size-24 text-primary')
+          )}
         </div>
       </div>
-
       {/* Animated Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500" />
-
       {/* Floating Elements */}
       <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
         <ProjectStatusBadge status={project.status} />
@@ -179,10 +196,8 @@ const ProjectImageHeader = ({
           {project.year}
         </Badge>
       </div>
-
       {/* GitHub Button */}
       <GitHubButton githubUrl={project.githubUrl} isVisible={isHovered} />
-
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse" />
@@ -199,8 +214,8 @@ const ProjectHeader = ({ project }: { project: Project }) => {
     <div className="relative p-6 pb-4">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <CategoryIcon category={project.category} />
-          <div>
+          <CategoryIcon image={project.image} category={project.category} />
+          <div className="flex-1">
             <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
               {getLocalizedString(project.title, locale)}
             </h3>
@@ -249,94 +264,32 @@ const ProjectCard = ({
   )
 }
 
-// Category Filter Component
-const CategoryFilter = ({
-  categories,
-  selectedCategory,
-  onCategoryChange,
-}: {
-  categories: Array<{ id: string; label: string; count: number }>
-  selectedCategory: string
-  onCategoryChange: (category: string) => void
-}) => {
-  return (
-    <div className="flex flex-wrap justify-center gap-3 mb-12">
-      {categories.map((category) => (
-        <button
-          key={category.id}
-          onClick={() => onCategoryChange(category.id)}
-          className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-            selectedCategory === category.id
-              ? "bg-white text-gray-900 shadow-lg"
-              : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
-          }`}
-        >
-          {category.label} ({category.count})
-        </button>
-      ))}
-    </div>
-  )
-}
-
 // Section Header Component
 const SectionHeader = () => {
-  const t = useTranslations("projects")
+  const t = useTranslations('projects')
 
   return (
     <div className="text-center mb-16">
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass sw-hologram sw-holo-flicker mb-6">
         <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
         <span className="text-sm font-semibold tracking-wide text-white/90">
-          {t("subtitle")}
+          {t('subtitle')}
         </span>
       </div>
 
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-        {t("title")}
+        {t('title')}
       </h2>
 
       <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-        {t("description")}
+        {t('description')}
       </p>
     </div>
   )
 }
 
 export function ProjectsSection() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
-  const t = useTranslations("projects")
-
-  const categories = [
-    { id: "all", label: t("categories.all"), count: featuredProjects.length },
-    {
-      id: "web",
-      label: t("categories.web"),
-      count: featuredProjects.filter((p) => p.category === "web").length,
-    },
-    {
-      id: "mobile",
-      label: t("categories.mobile"),
-      count: featuredProjects.filter((p) => p.category === "mobile").length,
-    },
-    {
-      id: "ai",
-      label: t("categories.ai"),
-      count: featuredProjects.filter((p) => p.category === "ai").length,
-    },
-    {
-      id: "other",
-      label: t("categories.desktop"),
-      count: featuredProjects.filter((p) => p.category === "other").length,
-    },
-  ]
-
-  const filteredProjects =
-    selectedCategory === "all"
-      ? featuredProjects
-      : featuredProjects.filter(
-          (project) => project.category === selectedCategory
-        )
 
   return (
     <section
@@ -346,15 +299,9 @@ export function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader />
 
-        <CategoryFilter
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
-
         {/* Projects Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredProjects.map((project) => (
+          {featuredProjects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}

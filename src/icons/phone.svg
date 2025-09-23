@@ -1,0 +1,24 @@
+<svg viewBox="0 0 24 24" fill="currentColor">
+    <rect
+        x="6"
+        y="2"
+        width="12"
+        height="20"
+        rx="3"
+        stroke="#2563eb"
+        strokeWidth="2"
+        fill="#fff"
+        fillOpacity="0.1"
+    />
+    <rect
+        x="9"
+        y="4"
+        width="6"
+        height="14"
+        rx="1.5"
+        stroke="#7c3aed"
+        strokeWidth="1.2"
+        fill="none"
+    />
+    <circle cx="12" cy="19" r="1" fill="#ec4899" />
+</svg>
