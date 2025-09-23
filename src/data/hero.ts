@@ -46,7 +46,7 @@ export const listTeams: Team[] = [
     },
   },
   {
-    name: 'Business Analyst',
+    name: 'BA',
     slogan: {
       en: 'Bridging business needs and technology by analyzing requirements, optimizing processes, and ensuring project success',
       vi: 'Kết nối nhu cầu kinh doanh và công nghệ thông qua phân tích yêu cầu, tối ưu quy trình và đảm bảo thành công dự án',
