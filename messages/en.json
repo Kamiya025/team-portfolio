@@ -173,5 +173,25 @@
     "backHome": "Back to Home",
     "exploreProjects": "Explore Projects",
     "errorCode": "404"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Fill in your details and we'll get back soon",
+    "fields": {
+      "name": { "label": "Full Name", "placeholder": "Enter your name" },
+      "email": { "label": "Email", "placeholder": "john@example.com" },
+      "message": {
+        "label": "Message",
+        "placeholder": "Describe your needs or questions"
+      }
+    },
+    "actions": {
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "feedback": {
+      "success": "Thank you! We've received your information.",
+      "error": "Submission failed"
+    }
   }
 }

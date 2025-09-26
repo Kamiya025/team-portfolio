@@ -14,6 +14,7 @@ const ProjectsSection = dynamic(
 )
 import { TeamSection } from "@/components/landing-page/team-section"
 import { BackToTop } from "@/components/ui/back-to-top"
+import { ContactSection } from "@/components/landing-page/contact-section"
 import { WebContent } from "@/data/config"
 import { getLocalizedString } from "@/utils"
 import { Metadata } from "next"
@@ -46,6 +47,9 @@ export default function Home() {
           </LazyRender>
           <LazyRender>
             <ProjectsSection />
+          </LazyRender>
+          <LazyRender>
+            <ContactSection />
           </LazyRender>
         </div>
       </main>

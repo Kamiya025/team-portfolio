@@ -48,11 +48,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </>
         )}
         {/* End Google Tag Manager */}
-        {/* <NextIntlClientProvider>
+        <NextIntlClientProvider>
           <ThemeProvider defaultTheme="dark" storageKey="team-portfolio-theme">
             {children}
           </ThemeProvider>
-        </NextIntlClientProvider> */}
+        </NextIntlClientProvider>
       </body>
     </html>
   )

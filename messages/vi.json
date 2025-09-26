@@ -168,5 +168,25 @@
     "backHome": "Về trang chủ",
     "exploreProjects": "Khám phá dự án",
     "errorCode": "404"
+  },
+  "contact": {
+    "title": "Liên hệ với chúng tôi",
+    "subtitle": "Điền thông tin và chúng tôi sẽ phản hồi sớm nhất",
+    "fields": {
+      "name": { "label": "Họ và tên", "placeholder": "Nhập họ và tên" },
+      "email": { "label": "Email", "placeholder": "nhan@example.com" },
+      "message": {
+        "label": "Lời nhắn",
+        "placeholder": "Mô tả nhu cầu hoặc câu hỏi của bạn"
+      }
+    },
+    "actions": {
+      "submit": "Gửi liên hệ",
+      "sending": "Đang gửi..."
+    },
+    "feedback": {
+      "success": "Cảm ơn bạn! Chúng tôi đã nhận được thông tin.",
+      "error": "Gửi thất bại"
+    }
   }
 }
