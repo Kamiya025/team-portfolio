@@ -53,6 +53,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.process = { env: { NODE_ENV: "production" } }`,
+          }}
+        />
+        <script src="https://ai-chat-box-widget.vercel.app/widget.js"></script>
       </body>
     </html>
   )
