@@ -1,12 +1,14 @@
-import { routing } from "@/i18n/routing"
-import { ThemeProvider } from "@/providers/theme-provider"
-import { hasLocale, NextIntlClientProvider } from "next-intl"
-import { Inter } from "next/font/google"
-import { notFound } from "next/navigation"
+import { routing } from '@/i18n/routing'
+import { ThemeProvider } from '@/providers/theme-provider'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { Inter } from 'next/font/google'
+import { notFound } from 'next/navigation'
+import Script from 'next/script'
+
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-inter',
+  display: 'swap',
 })
 
 export default async function LocaleLayout({
@@ -31,12 +33,17 @@ export default async function LocaleLayout({
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
-        <script
+        <Script
+          id="process-env"
           dangerouslySetInnerHTML={{
             __html: `window.process = { env: { NODE_ENV: "production" } }`,
           }}
         />
-        <script src="https://ai-chat-box-widget.vercel.app/widget.js"></script>
+        <Script
+          src="https://ai-chat-box-widget.vercel.app/widget.js"
+          type="module"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
