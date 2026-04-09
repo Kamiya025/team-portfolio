@@ -33,12 +33,7 @@ export default async function LocaleLayout({
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
-        <Script
-          id="process-env"
-          dangerouslySetInnerHTML={{
-            __html: `window.process = { env: { NODE_ENV: "production" } }`,
-          }}
-        />
+
         <Script
           src="https://ai-chat-box-widget.vercel.app/widget.js"
           type="module"
