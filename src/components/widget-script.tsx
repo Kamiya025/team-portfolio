@@ -29,7 +29,7 @@ export function WidgetScript() {
           position: 'right',
           primaryColor: '#aa3bff',
           secondaryColor: '#7c3aed',
-          useStream: true,
+          useStream: false,
           email: 'khachhang@example.com',
         })
       }}
