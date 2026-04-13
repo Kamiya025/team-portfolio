@@ -1,3 +1,4 @@
+import { WidgetScript } from '@/components/widget-script'
 import { routing } from '@/i18n/routing'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
@@ -34,11 +35,7 @@ export default async function LocaleLayout({
           </ThemeProvider>
         </NextIntlClientProvider>
 
-        <Script
-          src="https://ai-chat-box-widget.vercel.app/widget.js"
-          type="module"
-          strategy="afterInteractive"
-        />
+        <WidgetScript />
       </body>
     </html>
   )
