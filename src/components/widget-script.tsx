@@ -10,6 +10,7 @@ interface ExtendedWindow extends Window {
       position?: string
       primaryColor?: string
       secondaryColor?: string
+      useStream?: boolean
       email?: string
     }) => void
   }
@@ -28,6 +29,7 @@ export function WidgetScript() {
           position: 'right',
           primaryColor: '#aa3bff',
           secondaryColor: '#7c3aed',
+          useStream: true,
           email: 'khachhang@example.com',
         })
       }}
