@@ -30,7 +30,6 @@ export function WidgetScript() {
           primaryColor: '#aa3bff',
           secondaryColor: '#7c3aed',
           useStream: false,
-          email: 'khachhang@example.com',
         })
       }}
     />
